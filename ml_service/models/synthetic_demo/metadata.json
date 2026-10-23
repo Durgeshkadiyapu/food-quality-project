@@ -1,0 +1,276 @@
+{
+  "model_version": "1.0.0-synthetic_demo",
+  "training_mode": "synthetic_demo",
+  "training_mode_description": "Synthetic demonstration measurements with synthetic labels.",
+  "is_synthetic_demonstration": true,
+  "uses_synthetic_data": true,
+  "label_method": "synthetic_class_conditional_generator_existing_package",
+  "label_provenance_note": "Labels are assumed (proxy or synthetic), never observed/verified freshness.",
+  "warning": "SYNTHETIC DEMONSTRATION MODEL: trained on generated sensor values and assumed labels. Output is not evidence of real-world freshness. Not a food-safety indicator.",
+  "model_name": "logistic_regression",
+  "model_class": "LogisticRegression",
+  "trained_at_utc": "2026-10-21T18:23:01+00:00",
+  "random_seed": 42,
+  "target": "freshness_label",
+  "classes": [
+    "Fresh",
+    "Semi-Fresh",
+    "Spoiled"
+  ],
+  "features": [
+    "fruit_type",
+    "MQ3_raw",
+    "MQ135_raw",
+    "temperature_C",
+    "humidity_pct"
+  ],
+  "numeric_features": [
+    "MQ3_raw",
+    "MQ135_raw",
+    "temperature_C",
+    "humidity_pct"
+  ],
+  "categorical_features": [
+    "fruit_type"
+  ],
+  "excluded_features": [
+    "storage_day",
+    "sample_id",
+    "sample_number",
+    "timestamp",
+    "specimen_uid",
+    "training_split_group",
+    "source_id",
+    "source_file",
+    "source_row",
+    "label_method",
+    "freshness_label_original",
+    "quality_tier",
+    "MQ2_raw",
+    "MQ4_raw",
+    "MQ5_raw",
+    "MQ6_raw",
+    "MQ7_raw",
+    "MQ8_raw",
+    "MQ9_raw"
+  ],
+  "supported_fruit_types": [
+    "Banana",
+    "Brinjal",
+    "Cabbage",
+    "Capsicum",
+    "Carrot",
+    "Cauliflower",
+    "Cucumber",
+    "Grapes",
+    "Guava",
+    "Mango",
+    "Onion",
+    "Orange",
+    "Papaya",
+    "Pear",
+    "Potato",
+    "Spinach",
+    "Strawberry",
+    "Tomato"
+  ],
+  "training_ranges": {
+    "MQ3_raw": {
+      "min": 1477.0,
+      "max": 2877.0
+    },
+    "MQ135_raw": {
+      "min": 1439.0,
+      "max": 3900.0
+    },
+    "temperature_C": {
+      "min": 20.7,
+      "max": 34.6
+    },
+    "humidity_pct": {
+      "min": 60.0,
+      "max": 99.0
+    }
+  },
+  "training_data": {
+    "source_file": "food_quality_master_expanded_transparent.csv",
+    "source_sha256": "a4b567cf700f40652897870091e0b3405a6fa50486e918e91a4a3babaf634e24",
+    "prepared_datasets": [
+      "synthetic"
+    ],
+    "rows": 13320,
+    "label_counts": {
+      "Fresh": 4740,
+      "Spoiled": 4740,
+      "Semi-Fresh": 3840
+    },
+    "rows_by_food": {
+      "Banana": 900,
+      "Tomato": 900,
+      "Orange": 720,
+      "Mango": 720,
+      "Grapes": 720,
+      "Papaya": 720,
+      "Guava": 720,
+      "Strawberry": 720,
+      "Pear": 720,
+      "Potato": 720,
+      "Carrot": 720,
+      "Cucumber": 720,
+      "Capsicum": 720,
+      "Onion": 720,
+      "Brinjal": 720,
+      "Cabbage": 720,
+      "Cauliflower": 720,
+      "Spinach": 720
+    },
+    "independent_groups": 414
+  },
+  "evaluation": {
+    "method": "StratifiedGroupKFold(5), group = specimen/generator-group; no group in train and test",
+    "selection_metric": "macro_f1 (pooled out-of-fold)",
+    "selected_model_metrics": {
+      "n": 13320,
+      "accuracy": 0.721921921921922,
+      "balanced_accuracy": 0.7147162886779185,
+      "macro_precision": 0.7225648227228857,
+      "macro_recall": 0.7147162886779185,
+      "macro_f1": 0.7167597814629653,
+      "per_class": {
+        "Fresh": {
+          "precision": 0.8048951048951049,
+          "recall": 0.7284810126582278,
+          "f1": 0.7647840531561462,
+          "support": 4740
+        },
+        "Semi-Fresh": {
+          "precision": 0.5207404103479036,
+          "recall": 0.6080729166666666,
+          "f1": 0.5610283517539645,
+          "support": 3840
+        },
+        "Spoiled": {
+          "precision": 0.8420589529256489,
+          "recall": 0.8075949367088607,
+          "f1": 0.8244669394787852,
+          "support": 4740
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Fresh",
+          "Semi-Fresh",
+          "Spoiled"
+        ],
+        "matrix": [
+          [
+            3453,
+            1255,
+            32
+          ],
+          [
+            819,
+            2335,
+            686
+          ],
+          [
+            18,
+            894,
+            3828
+          ]
+        ],
+        "note": "rows = true class, columns = predicted class"
+      }
+    },
+    "majority_baseline": {
+      "n": 13320,
+      "accuracy": 0.35135135135135137,
+      "balanced_accuracy": 0.3291139240506329,
+      "macro_precision": 0.23411413698977976,
+      "macro_recall": 0.3291139240506329,
+      "macro_f1": 0.2708340649692713,
+      "per_class": {
+        "Fresh": {
+          "precision": 0.352059925093633,
+          "recall": 0.5949367088607594,
+          "f1": 0.4423529411764706,
+          "support": 4740
+        },
+        "Semi-Fresh": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3840
+        },
+        "Spoiled": {
+          "precision": 0.3502824858757062,
+          "recall": 0.3924050632911392,
+          "f1": 0.3701492537313433,
+          "support": 4740
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Fresh",
+          "Semi-Fresh",
+          "Spoiled"
+        ],
+        "matrix": [
+          [
+            2820,
+            0,
+            1920
+          ],
+          [
+            2310,
+            0,
+            1530
+          ],
+          [
+            2880,
+            0,
+            1860
+          ]
+        ],
+        "note": "rows = true class, columns = predicted class"
+      }
+    },
+    "all_candidates_macro_f1": {
+      "logistic_regression": 0.7167597814629653,
+      "random_forest": 0.6686459056595252,
+      "extra_trees": 0.6599508637825466,
+      "hist_gradient_boosting": 0.6744325125793482
+    },
+    "all_candidates_accuracy": {
+      "logistic_regression": 0.721921921921922,
+      "random_forest": 0.6792042042042042,
+      "extra_trees": 0.6677177177177177,
+      "hist_gradient_boosting": 0.6832582582582583
+    },
+    "reliability": {
+      "independent_groups": 414,
+      "groups_per_class": {
+        "Fresh": 143,
+        "Semi-Fresh": 128,
+        "Spoiled": 143
+      },
+      "estimates_reliable": false,
+      "reasons": [
+        "synthetic records come from a class-conditional generator; metrics measure how well the generator's classes can be separated, not real-world freshness"
+      ]
+    },
+    "caveat": "Model was selected on the same CV folds it is scored on, so the selected score is optimistic. Probabilities are model scores, not calibrated and NOT food-safety probabilities."
+  },
+  "risk_score_definition": {
+    "name": "spoilage_tendency_score",
+    "formula": "100 * (0.5 * P(Semi-Fresh) + 1.0 * P(Spoiled))",
+    "range": "0-100",
+    "meaning": "How strongly the model's scores lean toward the Spoiled class. Demonstration only; NOT a validated food-safety risk."
+  },
+  "environment": {
+    "python": "3.13.16",
+    "scikit-learn": "1.9.1",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3"
+  }
+}

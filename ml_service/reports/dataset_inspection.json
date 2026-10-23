@@ -1,0 +1,463 @@
+{
+  "master_file": "C:\\Users\\DurgeshKumar\\.gemini\\antigravity\\scratch\\food_quality_project\\ml_service\\data\\raw\\food_quality_master_expanded_transparent.csv",
+  "master_sha256": "a4b567cf700f40652897870091e0b3405a6fa50486e918e91a4a3babaf634e24",
+  "total_rows": 36789,
+  "columns": {
+    "sample_id": "str",
+    "data_origin": "str",
+    "is_synthetic": "bool",
+    "is_sensor_value_real": "bool",
+    "is_label_invented": "bool",
+    "food_type": "str",
+    "food_category": "str",
+    "specimen_uid": "str",
+    "training_split_group": "str",
+    "storage_day": "float64",
+    "MQ3_raw": "int64",
+    "MQ135_raw": "int64",
+    "temperature_C": "float64",
+    "humidity_pct": "float64",
+    "freshness_label": "str",
+    "label_method": "str",
+    "label_confidence": "str",
+    "label_evidence": "str",
+    "usable_for_supervised_training": "bool",
+    "quality_tier": "str",
+    "is_saturated": "bool",
+    "is_rh_100": "object",
+    "source_id": "str",
+    "source_file": "str",
+    "source_row": "float64",
+    "exclusion_reason": "str",
+    "freshness_label_original": "str",
+    "demo_training_candidate": "bool"
+  },
+  "missing_values": {
+    "specimen_uid": 461,
+    "storage_day": 13781,
+    "quality_tier": 13320,
+    "is_rh_100": 13320,
+    "source_file": 13320,
+    "source_row": 13320,
+    "exclusion_reason": 24325
+  },
+  "missing_values_note": "storage_day is empty for synthetic rows (by design) and the empty chamber; quality_tier/source_file/source_row/is_rh_100 are empty for synthetic rows.",
+  "model_feature_columns_missing": {
+    "food_type": 0,
+    "MQ3_raw": 0,
+    "MQ135_raw": 0,
+    "temperature_C": 0,
+    "humidity_pct": 0
+  },
+  "mq_columns_present": [
+    "MQ3_raw",
+    "MQ135_raw"
+  ],
+  "forbidden_feature_columns_present_in_data": [
+    "storage_day",
+    "sample_id",
+    "specimen_uid",
+    "training_split_group",
+    "source_id",
+    "source_file",
+    "source_row",
+    "label_method",
+    "freshness_label_original",
+    "quality_tier"
+  ],
+  "rows_by_data_origin": {
+    "real_sensor_with_proxy_label": 23469,
+    "synthetic": 13320
+  },
+  "real_vs_synthetic": {
+    "real_sensor_rows": 23469,
+    "synthetic_rows": 13320,
+    "is_sensor_value_real_true": 23469,
+    "is_label_invented_true": 36789
+  },
+  "label_provenance": {
+    "label_method": {
+      "storage_day_proxy_days1-2_fresh_days3-4_semi_day5plus_spoiled": 23469,
+      "synthetic_class_conditional_generator_existing_package": 13320
+    },
+    "label_confidence": {
+      "low_assumed_not_observed": 23469,
+      "synthetic_assumption_not_observed": 13320
+    },
+    "proxy_labelled_rows": 23008,
+    "unknown_labelled_rows": 461,
+    "usable_for_supervised_training_true": 0,
+    "demo_training_candidate_true": 36328
+  },
+  "food_categories": {
+    "Tomato": 11712,
+    "Apple": 8511,
+    "Banana": 4585,
+    "Orange": 720,
+    "Mango": 720,
+    "Grapes": 720,
+    "Papaya": 720,
+    "Guava": 720,
+    "Strawberry": 720,
+    "Pear": 720,
+    "Potato": 720,
+    "Carrot": 720,
+    "Cucumber": 720,
+    "Capsicum": 720,
+    "Onion": 720,
+    "Brinjal": 720,
+    "Cabbage": 720,
+    "Cauliflower": 720,
+    "Spinach": 720,
+    "Empty_Container": 461
+  },
+  "freshness_classes": {
+    "Fresh": 13501,
+    "Semi-Fresh": 12661,
+    "Spoiled": 10166,
+    "unknown": 461
+  },
+  "class_by_origin_and_food": {
+    "real_sensor_with_proxy_label | Apple": {
+      "Semi-Fresh": 3543,
+      "Fresh": 3319,
+      "Spoiled": 1649
+    },
+    "real_sensor_with_proxy_label | Banana": {
+      "Semi-Fresh": 2146,
+      "Fresh": 1539
+    },
+    "real_sensor_with_proxy_label | Empty_Container": {
+      "unknown": 461
+    },
+    "real_sensor_with_proxy_label | Tomato": {
+      "Fresh": 3903,
+      "Spoiled": 3777,
+      "Semi-Fresh": 3132
+    },
+    "synthetic | Banana": {
+      "Spoiled": 900
+    },
+    "synthetic | Brinjal": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Cabbage": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Capsicum": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Carrot": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Cauliflower": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Cucumber": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Grapes": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Guava": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Mango": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Onion": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Orange": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Papaya": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Pear": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Potato": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Spinach": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Strawberry": {
+      "Fresh": 240,
+      "Semi-Fresh": 240,
+      "Spoiled": 240
+    },
+    "synthetic | Tomato": {
+      "Fresh": 900
+    }
+  },
+  "duplicates": {
+    "duplicate_sample_id": 0,
+    "duplicate_measurements_all_rows(food+4 sensors)": 474,
+    "duplicate_measurements_real_rows": 474,
+    "duplicate_measurements_synthetic_rows": 0,
+    "duplicate_with_conflicting_labels": 0
+  },
+  "independent_units": {
+    "real_specimens": 9,
+    "real_specimens_by_food": {
+      "Apple": 3,
+      "Banana": 3,
+      "Empty_Container": 0,
+      "Tomato": 3
+    },
+    "real_recording_sessions(source_file)": 40,
+    "real_training_split_groups": 10,
+    "synthetic_specimen_ids": 414,
+    "synthetic_groups": 414,
+    "real_sessions_per_specimen": {
+      "Apple_1": 5,
+      "Apple_2": 5,
+      "Apple_3": 5,
+      "Banana_1": 2,
+      "Banana_2": 2,
+      "Banana_3": 2,
+      "Tomato_1": 6,
+      "Tomato_2": 6,
+      "Tomato_3": 6
+    },
+    "note": "Synthetic 'specimens' are generator labels, not physical items; they are independent only in the sense that generated rows are not copies of real readings."
+  },
+  "proxy_rule_check": {
+    "real_rows_checked": 23008,
+    "label_disagrees_with_storage_day_rule": 0
+  },
+  "real_class_rows_per_specimen": {
+    "Apple_1": {
+      "Fresh": 1129,
+      "Semi-Fresh": 1020,
+      "Spoiled": 561
+    },
+    "Apple_2": {
+      "Fresh": 1067,
+      "Semi-Fresh": 931,
+      "Spoiled": 607
+    },
+    "Apple_3": {
+      "Fresh": 1123,
+      "Semi-Fresh": 1592,
+      "Spoiled": 481
+    },
+    "Banana_1": {
+      "Fresh": 512,
+      "Semi-Fresh": 577,
+      "Spoiled": 0
+    },
+    "Banana_2": {
+      "Fresh": 516,
+      "Semi-Fresh": 1045,
+      "Spoiled": 0
+    },
+    "Banana_3": {
+      "Fresh": 511,
+      "Semi-Fresh": 524,
+      "Spoiled": 0
+    },
+    "Tomato_1": {
+      "Fresh": 1890,
+      "Semi-Fresh": 1056,
+      "Spoiled": 1028
+    },
+    "Tomato_2": {
+      "Fresh": 1012,
+      "Semi-Fresh": 1026,
+      "Spoiled": 1217
+    },
+    "Tomato_3": {
+      "Fresh": 1001,
+      "Semi-Fresh": 1050,
+      "Spoiled": 1532
+    }
+  },
+  "real_foods_missing_a_class": {
+    "Banana": [
+      "Spoiled"
+    ]
+  },
+  "synthetic_foods_with_single_class": {
+    "Banana": [
+      "Spoiled"
+    ],
+    "Tomato": [
+      "Fresh"
+    ]
+  },
+  "mq135_saturation": {
+    "rows_at_adc_max_4095": 1557,
+    "by_origin": {
+      "real_sensor_with_proxy_label": 1557
+    },
+    "by_class": {
+      "Semi-Fresh": 1550,
+      "Fresh": 6,
+      "Spoiled": 1
+    },
+    "by_specimen": {
+      "Banana_2": 1043,
+      "Banana_1": 507,
+      "Tomato_3": 6,
+      "Apple_2": 1
+    },
+    "is_saturated_flag_true": 1557,
+    "note": "Saturation is almost entirely in real Semi-Fresh rows: a potential shortcut (clipped sensor == class) to report, not hide."
+  },
+  "invalid_or_suspicious": {
+    "MQ3_outside_0_4095": 0,
+    "MQ135_outside_0_4095": 0,
+    "humidity_outside_0_100": 0,
+    "humidity_exactly_100_(DHT22 limit)": 122,
+    "temperature_outside_-40_80": 0,
+    "empty_chamber_baseline_rows": 461,
+    "real_rows_by_quality_tier": {
+      "A": 11005,
+      "C": 7131,
+      "B": 5333
+    },
+    "real_rows_with_exclusion_reason": 12464,
+    "exclusion_reasons": {
+      "tier C: reference-only status": 6670,
+      "tier B: provisional/tentative/clipped/pre-insertion": 3766,
+      "MQ135_raw at ADC max 4095 (clipped); tier B: provisional/tentative/clipped/pre-insertion": 1445,
+      "empty-chamber baseline, not a food; tier C: reference-only status": 461,
+      "MQ135_raw at ADC max 4095 (clipped); humidity at DHT22 limit 100%; tier B: provisional/tentative/clipped/pre-insertion": 112,
+      "humidity at DHT22 limit 100%; tier B: provisional/tentative/clipped/pre-insertion": 10
+    }
+  },
+  "feature_ranges": {
+    "MQ3_raw": {
+      "min": 1360.0,
+      "max": 2877.0,
+      "real_min": 1360.0,
+      "real_max": 2860.0,
+      "synthetic_min": 1477.0,
+      "synthetic_max": 2877.0
+    },
+    "MQ135_raw": {
+      "min": 1184.0,
+      "max": 4095.0,
+      "real_min": 1184.0,
+      "real_max": 4095.0,
+      "synthetic_min": 1439.0,
+      "synthetic_max": 3900.0
+    },
+    "temperature_C": {
+      "min": 20.7,
+      "max": 34.6,
+      "real_min": 28.5,
+      "real_max": 33.6,
+      "synthetic_min": 20.7,
+      "synthetic_max": 34.6
+    },
+    "humidity_pct": {
+      "min": 60.0,
+      "max": 100.0,
+      "real_min": 66.0,
+      "real_max": 100.0,
+      "synthetic_min": 60.0,
+      "synthetic_max": 99.0
+    }
+  },
+  "sensor_means_by_origin_and_class": {
+    "real_sensor_with_proxy_label | Fresh": {
+      "MQ3_raw": 1997.5,
+      "MQ135_raw": 2287.0,
+      "temperature_C": 30.9,
+      "humidity_pct": 86.7
+    },
+    "real_sensor_with_proxy_label | Semi-Fresh": {
+      "MQ3_raw": 2219.6,
+      "MQ135_raw": 2999.0,
+      "temperature_C": 30.1,
+      "humidity_pct": 90.1
+    },
+    "real_sensor_with_proxy_label | Spoiled": {
+      "MQ3_raw": 2394.4,
+      "MQ135_raw": 3172.7,
+      "temperature_C": 29.7,
+      "humidity_pct": 85.8
+    },
+    "real_sensor_with_proxy_label | unknown": {
+      "MQ3_raw": 1792.7,
+      "MQ135_raw": 2530.2,
+      "temperature_C": 31.4,
+      "humidity_pct": 85.5
+    },
+    "synthetic | Fresh": {
+      "MQ3_raw": 1952.6,
+      "MQ135_raw": 2488.1,
+      "temperature_C": 27.0,
+      "humidity_pct": 81.6
+    },
+    "synthetic | Semi-Fresh": {
+      "MQ3_raw": 2051.3,
+      "MQ135_raw": 2757.1,
+      "temperature_C": 27.0,
+      "humidity_pct": 82.0
+    },
+    "synthetic | Spoiled": {
+      "MQ3_raw": 2205.1,
+      "MQ135_raw": 3115.4,
+      "temperature_C": 28.2,
+      "humidity_pct": 84.7
+    }
+  },
+  "master_vs_demo": {
+    "demo_file": "C:\\Users\\DurgeshKumar\\.gemini\\antigravity\\scratch\\food_quality_project\\ml_service\\data\\raw\\food_quality_demo_training_data.csv",
+    "demo_rows": 36328,
+    "master_rows": 36789,
+    "demo_sample_ids_subset_of_master": true,
+    "rows_only_in_master": 461,
+    "only_in_master_are": {
+      "unknown": 461
+    },
+    "overlapping_rows_identical": true,
+    "conclusion": "master is the latest/superset; demo = master minus rows with demo_training_candidate=False"
+  },
+  "model_inputs": {
+    "features": [
+      "fruit_type",
+      "MQ3_raw",
+      "MQ135_raw",
+      "temperature_C",
+      "humidity_pct"
+    ],
+    "target": "freshness_label",
+    "group_column_for_splitting_only": "training_split_group"
+  }
+}

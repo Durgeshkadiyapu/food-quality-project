@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  ml-service:
+    build: ./ml_service
+    container_name: food_quality_ml
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - DEFAULT_TRAINING_MODE=proxy_real
+
+  backend:
+    build: ./backend
+    container_name: food_quality_backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    depends_on:
+      - ml-service
+    environment:
+      - PORT=5000
+      - NODE_ENV=production
+      - ML_BASE_URL=http://ml-service:8000
+      - MONGODB_URI=mongodb://madinarohitkumar173_db_user:xHndJi5BOyl7MzHr@ac-wdr1rho-shard-00-00.koq2e1t.mongodb.net:27017,ac-wdr1rho-shard-00-01.koq2e1t.mongodb.net:27017,ac-wdr1rho-shard-00-02.koq2e1t.mongodb.net:27017/?ssl=true&replicaSet=atlas-107aj5-shard-0&authSource=admin
+      - CORS_ORIGINS=http://localhost,http://localhost:5173,http://localhost:80
+
+  frontend:
+    build: ./frontend
+    container_name: food_quality_frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend

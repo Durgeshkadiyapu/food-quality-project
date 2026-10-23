@@ -1,0 +1,79 @@
+{
+  "source_file": "C:\\Users\\DurgeshKumar\\.gemini\\antigravity\\scratch\\food_quality_project\\ml_service\\data\\raw\\food_quality_master_expanded_transparent.csv",
+  "source_sha256": "a4b567cf700f40652897870091e0b3405a6fa50486e918e91a4a3babaf634e24",
+  "source_rows": 36789,
+  "feature_columns_used_downstream": [
+    "fruit_type",
+    "MQ3_raw",
+    "MQ135_raw",
+    "temperature_C",
+    "humidity_pct"
+  ],
+  "transformations": [
+    "No values modified. Model input `fruit_type` is read from source column `food_type` at training time.",
+    "Rows partitioned by explicit provenance flags (is_synthetic, is_sensor_value_real, label_method, label vs storage-day rule).",
+    "The source flag `usable_for_supervised_training` is False for every row (earlier audit); this project overrides it ONLY for clearly-labelled demonstration/proxy training via `demo_training_candidate`.",
+    "Real rows are kept regardless of quality_tier (A/B/C), saturation and RH=100; breakdowns by these are reported in evaluation."
+  ],
+  "datasets": {
+    "real_proxy": {
+      "file": "real_proxy_labelled.csv",
+      "rows": 23008,
+      "label_counts": {
+        "Semi-Fresh": 8821,
+        "Fresh": 8761,
+        "Spoiled": 5426
+      },
+      "food_counts": {
+        "Tomato": 10812,
+        "Apple": 8511,
+        "Banana": 3685
+      },
+      "independent_groups": 9
+    },
+    "synthetic": {
+      "file": "synthetic_demo.csv",
+      "rows": 13320,
+      "label_counts": {
+        "Fresh": 4740,
+        "Spoiled": 4740,
+        "Semi-Fresh": 3840
+      },
+      "food_counts": {
+        "Banana": 900,
+        "Tomato": 900,
+        "Orange": 720,
+        "Mango": 720,
+        "Grapes": 720,
+        "Papaya": 720,
+        "Guava": 720,
+        "Strawberry": 720,
+        "Pear": 720,
+        "Potato": 720,
+        "Carrot": 720,
+        "Cucumber": 720,
+        "Capsicum": 720,
+        "Onion": 720,
+        "Brinjal": 720,
+        "Cabbage": 720,
+        "Cauliflower": 720,
+        "Spinach": 720
+      },
+      "independent_groups": 414
+    },
+    "unknown_unusable": {
+      "file": "unknown_or_unusable.csv",
+      "rows": 461,
+      "label_counts": {
+        "unknown": 461
+      },
+      "food_counts": {
+        "Empty_Container": 461
+      },
+      "independent_groups": 1
+    }
+  },
+  "unknown_unusable_reasons": {
+    "label_not_a_target_class": 461
+  }
+}

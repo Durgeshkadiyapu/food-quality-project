@@ -1,0 +1,519 @@
+{
+  "mode": "synthetic_demo",
+  "selected": "logistic_regression",
+  "candidates": {
+    "logistic_regression": {
+      "n": 13320,
+      "accuracy": 0.721921921921922,
+      "balanced_accuracy": 0.7147162886779185,
+      "macro_precision": 0.7225648227228857,
+      "macro_recall": 0.7147162886779185,
+      "macro_f1": 0.7167597814629653,
+      "per_class": {
+        "Fresh": {
+          "precision": 0.8048951048951049,
+          "recall": 0.7284810126582278,
+          "f1": 0.7647840531561462,
+          "support": 4740
+        },
+        "Semi-Fresh": {
+          "precision": 0.5207404103479036,
+          "recall": 0.6080729166666666,
+          "f1": 0.5610283517539645,
+          "support": 3840
+        },
+        "Spoiled": {
+          "precision": 0.8420589529256489,
+          "recall": 0.8075949367088607,
+          "f1": 0.8244669394787852,
+          "support": 4740
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Fresh",
+          "Semi-Fresh",
+          "Spoiled"
+        ],
+        "matrix": [
+          [
+            3453,
+            1255,
+            32
+          ],
+          [
+            819,
+            2335,
+            686
+          ],
+          [
+            18,
+            894,
+            3828
+          ]
+        ],
+        "note": "rows = true class, columns = predicted class"
+      },
+      "per_fold": [
+        {
+          "fold": 0,
+          "held_out_groups": [
+            "SYN_Banana_Sp14",
+            "SYN_Banana_Sp6",
+            "SYN_Banana_Sp8",
+            "SYN_Brinjal_Fr6",
+            "SYN_Brinjal_Fr8"
+          ],
+          "n": 2670,
+          "accuracy": 0.7453183520599251
+        },
+        {
+          "fold": 1,
+          "held_out_groups": [
+            "SYN_Banana_Sp11",
+            "SYN_Banana_Sp13",
+            "SYN_Banana_Sp4",
+            "SYN_Brinjal_Fr1",
+            "SYN_Brinjal_Se4"
+          ],
+          "n": 2670,
+          "accuracy": 0.752059925093633
+        },
+        {
+          "fold": 2,
+          "held_out_groups": [
+            "SYN_Banana_Sp2",
+            "SYN_Banana_Sp3",
+            "SYN_Banana_Sp7",
+            "SYN_Brinjal_Fr2",
+            "SYN_Brinjal_Fr7"
+          ],
+          "n": 2670,
+          "accuracy": 0.7471910112359551
+        },
+        {
+          "fold": 3,
+          "held_out_groups": [
+            "SYN_Banana_Sp12",
+            "SYN_Banana_Sp15",
+            "SYN_Banana_Sp9",
+            "SYN_Brinjal_Fr3",
+            "SYN_Brinjal_Fr4"
+          ],
+          "n": 2670,
+          "accuracy": 0.6475655430711611
+        },
+        {
+          "fold": 4,
+          "held_out_groups": [
+            "SYN_Banana_Sp1",
+            "SYN_Banana_Sp10",
+            "SYN_Banana_Sp5",
+            "SYN_Brinjal_Se6",
+            "SYN_Brinjal_Sp1"
+          ],
+          "n": 2640,
+          "accuracy": 0.7174242424242424
+        }
+      ]
+    },
+    "random_forest": {
+      "n": 13320,
+      "accuracy": 0.6792042042042042,
+      "balanced_accuracy": 0.6678456838959214,
+      "macro_precision": 0.6697709736943693,
+      "macro_recall": 0.6678456838959214,
+      "macro_f1": 0.6686459056595252,
+      "per_class": {
+        "Fresh": {
+          "precision": 0.7515164191591717,
+          "recall": 0.7580168776371308,
+          "f1": 0.7547526520323495,
+          "support": 4740
+        },
+        "Semi-Fresh": {
+          "precision": 0.48155583437892097,
+          "recall": 0.49973958333333335,
+          "f1": 0.49047923322683706,
+          "support": 3840
+        },
+        "Spoiled": {
+          "precision": 0.7762406675450154,
+          "recall": 0.7457805907172996,
+          "f1": 0.7607058317193889,
+          "support": 4740
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Fresh",
+          "Semi-Fresh",
+          "Spoiled"
+        ],
+        "matrix": [
+          [
+            3593,
+            980,
+            167
+          ],
+          [
+            1069,
+            1919,
+            852
+          ],
+          [
+            119,
+            1086,
+            3535
+          ]
+        ],
+        "note": "rows = true class, columns = predicted class"
+      },
+      "per_fold": [
+        {
+          "fold": 0,
+          "held_out_groups": [
+            "SYN_Banana_Sp14",
+            "SYN_Banana_Sp6",
+            "SYN_Banana_Sp8",
+            "SYN_Brinjal_Fr6",
+            "SYN_Brinjal_Fr8"
+          ],
+          "n": 2670,
+          "accuracy": 0.7453183520599251
+        },
+        {
+          "fold": 1,
+          "held_out_groups": [
+            "SYN_Banana_Sp11",
+            "SYN_Banana_Sp13",
+            "SYN_Banana_Sp4",
+            "SYN_Brinjal_Fr1",
+            "SYN_Brinjal_Se4"
+          ],
+          "n": 2670,
+          "accuracy": 0.649812734082397
+        },
+        {
+          "fold": 2,
+          "held_out_groups": [
+            "SYN_Banana_Sp2",
+            "SYN_Banana_Sp3",
+            "SYN_Banana_Sp7",
+            "SYN_Brinjal_Fr2",
+            "SYN_Brinjal_Fr7"
+          ],
+          "n": 2670,
+          "accuracy": 0.7131086142322097
+        },
+        {
+          "fold": 3,
+          "held_out_groups": [
+            "SYN_Banana_Sp12",
+            "SYN_Banana_Sp15",
+            "SYN_Banana_Sp9",
+            "SYN_Brinjal_Fr3",
+            "SYN_Brinjal_Fr4"
+          ],
+          "n": 2670,
+          "accuracy": 0.6475655430711611
+        },
+        {
+          "fold": 4,
+          "held_out_groups": [
+            "SYN_Banana_Sp1",
+            "SYN_Banana_Sp10",
+            "SYN_Banana_Sp5",
+            "SYN_Brinjal_Se6",
+            "SYN_Brinjal_Sp1"
+          ],
+          "n": 2640,
+          "accuracy": 0.6397727272727273
+        }
+      ]
+    },
+    "extra_trees": {
+      "n": 13320,
+      "accuracy": 0.6677177177177177,
+      "balanced_accuracy": 0.6574982419127989,
+      "macro_precision": 0.6639047801968955,
+      "macro_recall": 0.6574982419127989,
+      "macro_f1": 0.6599508637825466,
+      "per_class": {
+        "Fresh": {
+          "precision": 0.7512535426204491,
+          "recall": 0.7270042194092827,
+          "f1": 0.7389299882062829,
+          "support": 4740
+        },
+        "Semi-Fresh": {
+          "precision": 0.45516272535705926,
+          "recall": 0.50625,
+          "f1": 0.479349032178523,
+          "support": 3840
+        },
+        "Spoiled": {
+          "precision": 0.785298072613178,
+          "recall": 0.739240506329114,
+          "f1": 0.7615735709628342,
+          "support": 4740
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Fresh",
+          "Semi-Fresh",
+          "Spoiled"
+        ],
+        "matrix": [
+          [
+            3446,
+            1196,
+            98
+          ],
+          [
+            1036,
+            1944,
+            860
+          ],
+          [
+            105,
+            1131,
+            3504
+          ]
+        ],
+        "note": "rows = true class, columns = predicted class"
+      },
+      "per_fold": [
+        {
+          "fold": 0,
+          "held_out_groups": [
+            "SYN_Banana_Sp14",
+            "SYN_Banana_Sp6",
+            "SYN_Banana_Sp8",
+            "SYN_Brinjal_Fr6",
+            "SYN_Brinjal_Fr8"
+          ],
+          "n": 2670,
+          "accuracy": 0.7438202247191011
+        },
+        {
+          "fold": 1,
+          "held_out_groups": [
+            "SYN_Banana_Sp11",
+            "SYN_Banana_Sp13",
+            "SYN_Banana_Sp4",
+            "SYN_Brinjal_Fr1",
+            "SYN_Brinjal_Se4"
+          ],
+          "n": 2670,
+          "accuracy": 0.6318352059925093
+        },
+        {
+          "fold": 2,
+          "held_out_groups": [
+            "SYN_Banana_Sp2",
+            "SYN_Banana_Sp3",
+            "SYN_Banana_Sp7",
+            "SYN_Brinjal_Fr2",
+            "SYN_Brinjal_Fr7"
+          ],
+          "n": 2670,
+          "accuracy": 0.701123595505618
+        },
+        {
+          "fold": 3,
+          "held_out_groups": [
+            "SYN_Banana_Sp12",
+            "SYN_Banana_Sp15",
+            "SYN_Banana_Sp9",
+            "SYN_Brinjal_Fr3",
+            "SYN_Brinjal_Fr4"
+          ],
+          "n": 2670,
+          "accuracy": 0.6367041198501873
+        },
+        {
+          "fold": 4,
+          "held_out_groups": [
+            "SYN_Banana_Sp1",
+            "SYN_Banana_Sp10",
+            "SYN_Banana_Sp5",
+            "SYN_Brinjal_Se6",
+            "SYN_Brinjal_Sp1"
+          ],
+          "n": 2640,
+          "accuracy": 0.6246212121212121
+        }
+      ]
+    },
+    "hist_gradient_boosting": {
+      "n": 13320,
+      "accuracy": 0.6832582582582583,
+      "balanced_accuracy": 0.6728628252461322,
+      "macro_precision": 0.6767679647683984,
+      "macro_recall": 0.6728628252461322,
+      "macro_f1": 0.6744325125793482,
+      "per_class": {
+        "Fresh": {
+          "precision": 0.7695143104943626,
+          "recall": 0.7487341772151899,
+          "f1": 0.7589820359281437,
+          "support": 4740
+        },
+        "Semi-Fresh": {
+          "precision": 0.48082026537997585,
+          "recall": 0.5190104166666667,
+          "f1": 0.4991859737006888,
+          "support": 3840
+        },
+        "Spoiled": {
+          "precision": 0.7799693184308569,
+          "recall": 0.75084388185654,
+          "f1": 0.7651295281092121,
+          "support": 4740
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Fresh",
+          "Semi-Fresh",
+          "Spoiled"
+        ],
+        "matrix": [
+          [
+            3549,
+            1063,
+            128
+          ],
+          [
+            971,
+            1993,
+            876
+          ],
+          [
+            92,
+            1089,
+            3559
+          ]
+        ],
+        "note": "rows = true class, columns = predicted class"
+      },
+      "per_fold": [
+        {
+          "fold": 0,
+          "held_out_groups": [
+            "SYN_Banana_Sp14",
+            "SYN_Banana_Sp6",
+            "SYN_Banana_Sp8",
+            "SYN_Brinjal_Fr6",
+            "SYN_Brinjal_Fr8"
+          ],
+          "n": 2670,
+          "accuracy": 0.7273408239700374
+        },
+        {
+          "fold": 1,
+          "held_out_groups": [
+            "SYN_Banana_Sp11",
+            "SYN_Banana_Sp13",
+            "SYN_Banana_Sp4",
+            "SYN_Brinjal_Fr1",
+            "SYN_Brinjal_Se4"
+          ],
+          "n": 2670,
+          "accuracy": 0.6756554307116105
+        },
+        {
+          "fold": 2,
+          "held_out_groups": [
+            "SYN_Banana_Sp2",
+            "SYN_Banana_Sp3",
+            "SYN_Banana_Sp7",
+            "SYN_Brinjal_Fr2",
+            "SYN_Brinjal_Fr7"
+          ],
+          "n": 2670,
+          "accuracy": 0.699625468164794
+        },
+        {
+          "fold": 3,
+          "held_out_groups": [
+            "SYN_Banana_Sp12",
+            "SYN_Banana_Sp15",
+            "SYN_Banana_Sp9",
+            "SYN_Brinjal_Fr3",
+            "SYN_Brinjal_Fr4"
+          ],
+          "n": 2670,
+          "accuracy": 0.6434456928838951
+        },
+        {
+          "fold": 4,
+          "held_out_groups": [
+            "SYN_Banana_Sp1",
+            "SYN_Banana_Sp10",
+            "SYN_Banana_Sp5",
+            "SYN_Brinjal_Se6",
+            "SYN_Brinjal_Sp1"
+          ],
+          "n": 2640,
+          "accuracy": 0.6700757575757575
+        }
+      ]
+    }
+  },
+  "majority_baseline": {
+    "n": 13320,
+    "accuracy": 0.35135135135135137,
+    "balanced_accuracy": 0.3291139240506329,
+    "macro_precision": 0.23411413698977976,
+    "macro_recall": 0.3291139240506329,
+    "macro_f1": 0.2708340649692713,
+    "per_class": {
+      "Fresh": {
+        "precision": 0.352059925093633,
+        "recall": 0.5949367088607594,
+        "f1": 0.4423529411764706,
+        "support": 4740
+      },
+      "Semi-Fresh": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3840
+      },
+      "Spoiled": {
+        "precision": 0.3502824858757062,
+        "recall": 0.3924050632911392,
+        "f1": 0.3701492537313433,
+        "support": 4740
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "Fresh",
+        "Semi-Fresh",
+        "Spoiled"
+      ],
+      "matrix": [
+        [
+          2820,
+          0,
+          1920
+        ],
+        [
+          2310,
+          0,
+          1530
+        ],
+        [
+          2880,
+          0,
+          1860
+        ]
+      ],
+      "note": "rows = true class, columns = predicted class"
+    }
+  }
+}

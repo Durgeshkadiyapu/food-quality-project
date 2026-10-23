@@ -1,0 +1,101 @@
+{
+  "caveat": "Shows what each model used, not scientific proof that a sensor causes or indicates spoilage. Temperature/humidity may act as proxies for recording day/environment drift.",
+  "modes": {
+    "proxy_real": {
+      "model": "extra_trees",
+      "impurity_importance": {
+        "fruit_type": 0.1731,
+        "MQ3_raw": 0.1673,
+        "MQ135_raw": 0.2243,
+        "temperature_C": 0.2888,
+        "humidity_pct": 0.1466
+      },
+      "grouped_permutation_importance": {
+        "fruit_type": {
+          "mean_accuracy_drop": 0.0,
+          "std_across_folds": 0.0
+        },
+        "MQ3_raw": {
+          "mean_accuracy_drop": 0.0829,
+          "std_across_folds": 0.1026
+        },
+        "MQ135_raw": {
+          "mean_accuracy_drop": 0.212,
+          "std_across_folds": 0.1613
+        },
+        "temperature_C": {
+          "mean_accuracy_drop": 0.235,
+          "std_across_folds": 0.1273
+        },
+        "humidity_pct": {
+          "mean_accuracy_drop": 0.0604,
+          "std_across_folds": 0.0532
+        }
+      }
+    },
+    "synthetic_demo": {
+      "model": "logistic_regression",
+      "mean_abs_coefficient": {
+        "fruit_type": 0.8612,
+        "MQ3_raw": 0.0444,
+        "MQ135_raw": 0.062,
+        "temperature_C": 0.0191,
+        "humidity_pct": 0.0134
+      },
+      "grouped_permutation_importance": {
+        "fruit_type": {
+          "mean_accuracy_drop": 0.1612,
+          "std_across_folds": 0.0353
+        },
+        "MQ3_raw": {
+          "mean_accuracy_drop": 0.175,
+          "std_across_folds": 0.0255
+        },
+        "MQ135_raw": {
+          "mean_accuracy_drop": 0.249,
+          "std_across_folds": 0.0293
+        },
+        "temperature_C": {
+          "mean_accuracy_drop": 0.0512,
+          "std_across_folds": 0.0143
+        },
+        "humidity_pct": {
+          "mean_accuracy_drop": 0.0381,
+          "std_across_folds": 0.0201
+        }
+      }
+    },
+    "combined_demo": {
+      "model": "extra_trees",
+      "impurity_importance": {
+        "fruit_type": 0.1553,
+        "MQ3_raw": 0.1976,
+        "MQ135_raw": 0.3088,
+        "temperature_C": 0.212,
+        "humidity_pct": 0.1263
+      },
+      "grouped_permutation_importance": {
+        "fruit_type": {
+          "mean_accuracy_drop": 0.19,
+          "std_across_folds": 0.0619
+        },
+        "MQ3_raw": {
+          "mean_accuracy_drop": 0.1399,
+          "std_across_folds": 0.0322
+        },
+        "MQ135_raw": {
+          "mean_accuracy_drop": 0.2219,
+          "std_across_folds": 0.0453
+        },
+        "temperature_C": {
+          "mean_accuracy_drop": 0.1291,
+          "std_across_folds": 0.0548
+        },
+        "humidity_pct": {
+          "mean_accuracy_drop": 0.0875,
+          "std_across_folds": 0.0514
+        }
+      }
+    }
+  }
+}

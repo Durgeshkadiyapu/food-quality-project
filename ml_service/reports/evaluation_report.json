@@ -1,0 +1,1383 @@
+{
+  "modes": {
+    "proxy_real": {
+      "mode": "proxy_real",
+      "model": "extra_trees",
+      "reproduces_training_metrics": true,
+      "metrics": {
+        "n": 23008,
+        "accuracy": 0.8918202364394993,
+        "balanced_accuracy": 0.9055063364341976,
+        "macro_precision": 0.9044876588007881,
+        "macro_recall": 0.9055063364341976,
+        "macro_f1": 0.904438782411241,
+        "per_class": {
+          "Fresh": {
+            "precision": 0.8855782146782268,
+            "recall": 0.8277593881976943,
+            "f1": 0.855693215339233,
+            "support": 8761
+          },
+          "Semi-Fresh": {
+            "precision": 0.8415236051502146,
+            "recall": 0.8891282167554699,
+            "f1": 0.8646711868143984,
+            "support": 8821
+          },
+          "Spoiled": {
+            "precision": 0.9863611565739225,
+            "recall": 0.9996314043494287,
+            "f1": 0.9929519450800915,
+            "support": 5426
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "Fresh",
+            "Semi-Fresh",
+            "Spoiled"
+          ],
+          "matrix": [
+            [
+              7252,
+              1476,
+              33
+            ],
+            [
+              936,
+              7843,
+              42
+            ],
+            [
+              1,
+              1,
+              5424
+            ]
+          ],
+          "note": "rows = true class, columns = predicted class"
+        }
+      },
+      "majority_baseline": {
+        "n": 23008,
+        "accuracy": 0.33718706536856746,
+        "balanced_accuracy": 0.29372071175108855,
+        "macro_precision": 0.23155135563326165,
+        "macro_recall": 0.29372071175108855,
+        "macro_f1": 0.2420354044941798,
+        "per_class": {
+          "Fresh": {
+            "precision": 0.36794389326034893,
+            "recall": 0.24551991781760074,
+            "f1": 0.2945163277880468,
+            "support": 8761
+          },
+          "Semi-Fresh": {
+            "precision": 0.32671017363943594,
+            "recall": 0.6356422174356648,
+            "f1": 0.4315898856944925,
+            "support": 8821
+          },
+          "Spoiled": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 5426
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "Fresh",
+            "Semi-Fresh",
+            "Spoiled"
+          ],
+          "matrix": [
+            [
+              2151,
+              6610,
+              0
+            ],
+            [
+              3214,
+              5607,
+              0
+            ],
+            [
+              481,
+              4945,
+              0
+            ]
+          ],
+          "note": "rows = true class, columns = predicted class"
+        }
+      },
+      "breakdowns": {
+        "by_food": {
+          "Apple": {
+            "n": 8511,
+            "accuracy": 0.9674538832099636,
+            "macro_f1": 0.9729628893988034,
+            "per_class_recall": {
+              "Fresh": 0.9611328713467912,
+              "Semi-Fresh": 0.9587919841941858,
+              "Spoiled": 0.9987871437234688
+            },
+            "per_class_support": {
+              "Fresh": 3319,
+              "Semi-Fresh": 3543,
+              "Spoiled": 1649
+            }
+          },
+          "Banana": {
+            "n": 3685,
+            "accuracy": 0.9508819538670285,
+            "macro_f1": 0.6323853725572582,
+            "per_class_recall": {
+              "Fresh": 0.884990253411306,
+              "Semi-Fresh": 0.9981360671015843,
+              "Spoiled": 0.0
+            },
+            "per_class_support": {
+              "Fresh": 1539,
+              "Semi-Fresh": 2146,
+              "Spoiled": 0
+            }
+          },
+          "Tomato": {
+            "n": 10812,
+            "accuracy": 0.8121531631520533,
+            "macro_f1": 0.8061776178338289,
+            "per_class_recall": {
+              "Fresh": 0.6917755572636434,
+              "Semi-Fresh": 0.735632183908046,
+              "Spoiled": 1.0
+            },
+            "per_class_support": {
+              "Fresh": 3903,
+              "Semi-Fresh": 3132,
+              "Spoiled": 3777
+            }
+          }
+        },
+        "real_rows_only": {
+          "n": 23008,
+          "accuracy": 0.8918202364394993,
+          "macro_f1": 0.904438782411241,
+          "per_class_recall": {
+            "Fresh": 0.8277593881976943,
+            "Semi-Fresh": 0.8891282167554699,
+            "Spoiled": 0.9996314043494287
+          },
+          "per_class_support": {
+            "Fresh": 8761,
+            "Semi-Fresh": 8821,
+            "Spoiled": 5426
+          }
+        },
+        "real_saturated_MQ135_rows": {
+          "n": 1557,
+          "accuracy": 0.9961464354527938,
+          "macro_f1": 0.4166666666666667,
+          "per_class_recall": {
+            "Fresh": 0.0,
+            "Semi-Fresh": 1.0,
+            "Spoiled": 1.0
+          },
+          "per_class_support": {
+            "Fresh": 6,
+            "Semi-Fresh": 1550,
+            "Spoiled": 1
+          }
+        },
+        "real_non_saturated_rows": {
+          "n": 21451,
+          "accuracy": 0.8842478206144235,
+          "macro_f1": 0.8954240246972618,
+          "per_class_recall": {
+            "Fresh": 0.8283266704740149,
+            "Semi-Fresh": 0.8654930546004677,
+            "Spoiled": 0.9996313364055299
+          },
+          "per_class_support": {
+            "Fresh": 8755,
+            "Semi-Fresh": 7271,
+            "Spoiled": 5425
+          }
+        },
+        "real_by_quality_tier": {
+          "A": {
+            "n": 11005,
+            "accuracy": 0.9701044979554748,
+            "macro_f1": 0.9507145495113233,
+            "per_class_recall": {
+              "Fresh": 0.8842380640941792,
+              "Semi-Fresh": 0.9637593621647741,
+              "Spoiled": 0.9996252576353757
+            },
+            "per_class_support": {
+              "Fresh": 1529,
+              "Semi-Fresh": 4139,
+              "Spoiled": 5337
+            }
+          },
+          "B": {
+            "n": 5333,
+            "accuracy": 0.6831051940746297,
+            "macro_f1": 0.6503863347837365,
+            "per_class_recall": {
+              "Fresh": 0.4633995037220844,
+              "Semi-Fresh": 0.772852422907489,
+              "Spoiled": 1.0
+            },
+            "per_class_support": {
+              "Fresh": 1612,
+              "Semi-Fresh": 3632,
+              "Spoiled": 89
+            }
+          },
+          "C": {
+            "n": 6670,
+            "accuracy": 0.9295352323838081,
+            "macro_f1": 0.5910257419947874,
+            "per_class_recall": {
+              "Fresh": 0.9169039145907474,
+              "Semi-Fresh": 0.9971428571428571,
+              "Spoiled": 0.0
+            },
+            "per_class_support": {
+              "Fresh": 5620,
+              "Semi-Fresh": 1050,
+              "Spoiled": 0
+            }
+          }
+        }
+      },
+      "ablations": {
+        "drop_saturated_rows(train+test)": {
+          "n": 21451,
+          "accuracy": 0.8651811104377418,
+          "macro_f1": 0.8781854516878062,
+          "per_class_recall": {
+            "Fresh": 0.8137064534551685,
+            "Semi-Fresh": 0.8284967679823958,
+            "Spoiled": 0.9974193548387097
+          },
+          "per_class_support": {
+            "Fresh": 8755,
+            "Semi-Fresh": 7271,
+            "Spoiled": 5425
+          }
+        },
+        "gas_sensors_only+fruit_type(no temperature/humidity)": {
+          "n": 23008,
+          "accuracy": 0.5955754520166898,
+          "macro_f1": 0.5964853025534065,
+          "per_class_recall": {
+            "Fresh": 0.7138454514324849,
+            "Semi-Fresh": 0.46185239768733705,
+            "Spoiled": 0.622005160339108
+          },
+          "per_class_support": {
+            "Fresh": 8761,
+            "Semi-Fresh": 8821,
+            "Spoiled": 5426
+          }
+        },
+        "sensors_only(no fruit_type)": {
+          "n": 23008,
+          "accuracy": 0.7632127955493742,
+          "macro_f1": 0.7820570067376761,
+          "per_class_recall": {
+            "Fresh": 0.6938705627211506,
+            "Semi-Fresh": 0.7397120507878925,
+            "Spoiled": 0.913380022115739
+          },
+          "per_class_support": {
+            "Fresh": 8761,
+            "Semi-Fresh": 8821,
+            "Spoiled": 5426
+          }
+        }
+      }
+    },
+    "synthetic_demo": {
+      "mode": "synthetic_demo",
+      "model": "logistic_regression",
+      "reproduces_training_metrics": true,
+      "metrics": {
+        "n": 13320,
+        "accuracy": 0.721921921921922,
+        "balanced_accuracy": 0.7147162886779185,
+        "macro_precision": 0.7225648227228857,
+        "macro_recall": 0.7147162886779185,
+        "macro_f1": 0.7167597814629653,
+        "per_class": {
+          "Fresh": {
+            "precision": 0.8048951048951049,
+            "recall": 0.7284810126582278,
+            "f1": 0.7647840531561462,
+            "support": 4740
+          },
+          "Semi-Fresh": {
+            "precision": 0.5207404103479036,
+            "recall": 0.6080729166666666,
+            "f1": 0.5610283517539645,
+            "support": 3840
+          },
+          "Spoiled": {
+            "precision": 0.8420589529256489,
+            "recall": 0.8075949367088607,
+            "f1": 0.8244669394787852,
+            "support": 4740
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "Fresh",
+            "Semi-Fresh",
+            "Spoiled"
+          ],
+          "matrix": [
+            [
+              3453,
+              1255,
+              32
+            ],
+            [
+              819,
+              2335,
+              686
+            ],
+            [
+              18,
+              894,
+              3828
+            ]
+          ],
+          "note": "rows = true class, columns = predicted class"
+        }
+      },
+      "majority_baseline": {
+        "n": 13320,
+        "accuracy": 0.35135135135135137,
+        "balanced_accuracy": 0.3291139240506329,
+        "macro_precision": 0.23411413698977976,
+        "macro_recall": 0.3291139240506329,
+        "macro_f1": 0.2708340649692713,
+        "per_class": {
+          "Fresh": {
+            "precision": 0.352059925093633,
+            "recall": 0.5949367088607594,
+            "f1": 0.4423529411764706,
+            "support": 4740
+          },
+          "Semi-Fresh": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 3840
+          },
+          "Spoiled": {
+            "precision": 0.3502824858757062,
+            "recall": 0.3924050632911392,
+            "f1": 0.3701492537313433,
+            "support": 4740
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "Fresh",
+            "Semi-Fresh",
+            "Spoiled"
+          ],
+          "matrix": [
+            [
+              2820,
+              0,
+              1920
+            ],
+            [
+              2310,
+              0,
+              1530
+            ],
+            [
+              2880,
+              0,
+              1860
+            ]
+          ],
+          "note": "rows = true class, columns = predicted class"
+        }
+      },
+      "breakdowns": {
+        "by_food": {
+          "Banana": {
+            "n": 900,
+            "accuracy": 1.0,
+            "macro_f1": 0.3333333333333333,
+            "per_class_recall": {
+              "Fresh": 0.0,
+              "Semi-Fresh": 0.0,
+              "Spoiled": 1.0
+            },
+            "per_class_support": {
+              "Fresh": 0,
+              "Semi-Fresh": 0,
+              "Spoiled": 900
+            }
+          },
+          "Brinjal": {
+            "n": 720,
+            "accuracy": 0.6319444444444444,
+            "macro_f1": 0.6347206832391036,
+            "per_class_recall": {
+              "Fresh": 0.5541666666666667,
+              "Semi-Fresh": 0.5291666666666667,
+              "Spoiled": 0.8125
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Cabbage": {
+            "n": 720,
+            "accuracy": 0.6444444444444445,
+            "macro_f1": 0.6493396149813815,
+            "per_class_recall": {
+              "Fresh": 0.7291666666666666,
+              "Semi-Fresh": 0.525,
+              "Spoiled": 0.6791666666666667
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Capsicum": {
+            "n": 720,
+            "accuracy": 0.5902777777777778,
+            "macro_f1": 0.5894494832883458,
+            "per_class_recall": {
+              "Fresh": 0.3125,
+              "Semi-Fresh": 0.5416666666666666,
+              "Spoiled": 0.9166666666666666
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Carrot": {
+            "n": 720,
+            "accuracy": 0.6444444444444445,
+            "macro_f1": 0.6482371200133571,
+            "per_class_recall": {
+              "Fresh": 0.5458333333333333,
+              "Semi-Fresh": 0.5708333333333333,
+              "Spoiled": 0.8166666666666667
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Cauliflower": {
+            "n": 720,
+            "accuracy": 0.7902777777777777,
+            "macro_f1": 0.7906584510162036,
+            "per_class_recall": {
+              "Fresh": 0.7291666666666666,
+              "Semi-Fresh": 0.725,
+              "Spoiled": 0.9166666666666666
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Cucumber": {
+            "n": 720,
+            "accuracy": 0.6291666666666667,
+            "macro_f1": 0.6330279925590596,
+            "per_class_recall": {
+              "Fresh": 0.6041666666666666,
+              "Semi-Fresh": 0.5083333333333333,
+              "Spoiled": 0.775
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Grapes": {
+            "n": 720,
+            "accuracy": 0.7388888888888889,
+            "macro_f1": 0.7411240005176483,
+            "per_class_recall": {
+              "Fresh": 0.8125,
+              "Semi-Fresh": 0.6666666666666666,
+              "Spoiled": 0.7375
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Guava": {
+            "n": 720,
+            "accuracy": 0.6625,
+            "macro_f1": 0.6730876451820144,
+            "per_class_recall": {
+              "Fresh": 0.6916666666666667,
+              "Semi-Fresh": 0.6666666666666666,
+              "Spoiled": 0.6291666666666667
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Mango": {
+            "n": 720,
+            "accuracy": 0.6472222222222223,
+            "macro_f1": 0.6478069023203169,
+            "per_class_recall": {
+              "Fresh": 0.7208333333333333,
+              "Semi-Fresh": 0.475,
+              "Spoiled": 0.7458333333333333
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Onion": {
+            "n": 720,
+            "accuracy": 0.5736111111111111,
+            "macro_f1": 0.5806315125187076,
+            "per_class_recall": {
+              "Fresh": 0.5375,
+              "Semi-Fresh": 0.49166666666666664,
+              "Spoiled": 0.6916666666666667
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Orange": {
+            "n": 720,
+            "accuracy": 0.6236111111111111,
+            "macro_f1": 0.6302536197098226,
+            "per_class_recall": {
+              "Fresh": 0.7291666666666666,
+              "Semi-Fresh": 0.5333333333333333,
+              "Spoiled": 0.6083333333333333
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Papaya": {
+            "n": 720,
+            "accuracy": 0.7944444444444444,
+            "macro_f1": 0.796025693035835,
+            "per_class_recall": {
+              "Fresh": 0.875,
+              "Semi-Fresh": 0.7333333333333333,
+              "Spoiled": 0.775
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Pear": {
+            "n": 720,
+            "accuracy": 0.6805555555555556,
+            "macro_f1": 0.6831888334564659,
+            "per_class_recall": {
+              "Fresh": 0.5291666666666667,
+              "Semi-Fresh": 0.6375,
+              "Spoiled": 0.875
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Potato": {
+            "n": 720,
+            "accuracy": 0.7333333333333333,
+            "macro_f1": 0.7383765067672686,
+            "per_class_recall": {
+              "Fresh": 0.8291666666666667,
+              "Semi-Fresh": 0.7166666666666667,
+              "Spoiled": 0.6541666666666667
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Spinach": {
+            "n": 720,
+            "accuracy": 0.7097222222222223,
+            "macro_f1": 0.7134227779815362,
+            "per_class_recall": {
+              "Fresh": 0.6125,
+              "Semi-Fresh": 0.6791666666666667,
+              "Spoiled": 0.8375
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Strawberry": {
+            "n": 720,
+            "accuracy": 0.7611111111111111,
+            "macro_f1": 0.7650068100652744,
+            "per_class_recall": {
+              "Fresh": 0.825,
+              "Semi-Fresh": 0.7291666666666666,
+              "Spoiled": 0.7291666666666666
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Tomato": {
+            "n": 900,
+            "accuracy": 1.0,
+            "macro_f1": 0.3333333333333333,
+            "per_class_recall": {
+              "Fresh": 1.0,
+              "Semi-Fresh": 0.0,
+              "Spoiled": 0.0
+            },
+            "per_class_support": {
+              "Fresh": 900,
+              "Semi-Fresh": 0,
+              "Spoiled": 0
+            }
+          }
+        }
+      },
+      "ablations": {
+        "gas_sensors_only+fruit_type(no temperature/humidity)": {
+          "n": 13320,
+          "accuracy": 0.6924924924924925,
+          "macro_f1": 0.6873509320954302,
+          "per_class_recall": {
+            "Fresh": 0.6919831223628692,
+            "Semi-Fresh": 0.56953125,
+            "Spoiled": 0.7926160337552742
+          },
+          "per_class_support": {
+            "Fresh": 4740,
+            "Semi-Fresh": 3840,
+            "Spoiled": 4740
+          }
+        },
+        "sensors_only(no fruit_type)": {
+          "n": 13320,
+          "accuracy": 0.6187687687687687,
+          "macro_f1": 0.608560408642101,
+          "per_class_recall": {
+            "Fresh": 0.6875527426160337,
+            "Semi-Fresh": 0.43854166666666666,
+            "Spoiled": 0.6959915611814346
+          },
+          "per_class_support": {
+            "Fresh": 4740,
+            "Semi-Fresh": 3840,
+            "Spoiled": 4740
+          }
+        }
+      }
+    },
+    "combined_demo": {
+      "mode": "combined_demo",
+      "model": "extra_trees",
+      "reproduces_training_metrics": true,
+      "metrics": {
+        "n": 36328,
+        "accuracy": 0.7732052411363136,
+        "balanced_accuracy": 0.7782996756528894,
+        "macro_precision": 0.7723449351377142,
+        "macro_recall": 0.7782996756528894,
+        "macro_f1": 0.7719312543828366,
+        "per_class": {
+          "Fresh": {
+            "precision": 0.7818651403043417,
+            "recall": 0.8296422487223168,
+            "f1": 0.8050454594458619,
+            "support": 13501
+          },
+          "Semi-Fresh": {
+            "precision": 0.7679679297508829,
+            "recall": 0.6354948266329674,
+            "f1": 0.6954792981242977,
+            "support": 12661
+          },
+          "Spoiled": {
+            "precision": 0.7672017353579176,
+            "recall": 0.8697619516033839,
+            "f1": 0.8152690055783505,
+            "support": 10166
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "Fresh",
+            "Semi-Fresh",
+            "Spoiled"
+          ],
+          "matrix": [
+            [
+              11201,
+              1646,
+              654
+            ],
+            [
+              2586,
+              8046,
+              2029
+            ],
+            [
+              539,
+              785,
+              8842
+            ]
+          ],
+          "note": "rows = true class, columns = predicted class"
+        }
+      },
+      "majority_baseline": {
+        "n": 36328,
+        "accuracy": 0.3716417088746972,
+        "balanced_accuracy": 0.3333333333333333,
+        "macro_precision": 0.12388056962489907,
+        "macro_recall": 0.3333333333333333,
+        "macro_f1": 0.1806310916668339,
+        "per_class": {
+          "Fresh": {
+            "precision": 0.3716417088746972,
+            "recall": 1.0,
+            "f1": 0.5418932750005017,
+            "support": 13501
+          },
+          "Semi-Fresh": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 12661
+          },
+          "Spoiled": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 10166
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "Fresh",
+            "Semi-Fresh",
+            "Spoiled"
+          ],
+          "matrix": [
+            [
+              13501,
+              0,
+              0
+            ],
+            [
+              12661,
+              0,
+              0
+            ],
+            [
+              10166,
+              0,
+              0
+            ]
+          ],
+          "note": "rows = true class, columns = predicted class"
+        }
+      },
+      "breakdowns": {
+        "by_food": {
+          "Apple": {
+            "n": 8511,
+            "accuracy": 0.9235107507930913,
+            "macro_f1": 0.9342064113029259,
+            "per_class_recall": {
+              "Fresh": 0.9011750527267249,
+              "Semi-Fresh": 0.9232289020604008,
+              "Spoiled": 0.9690721649484536
+            },
+            "per_class_support": {
+              "Fresh": 3319,
+              "Semi-Fresh": 3543,
+              "Spoiled": 1649
+            }
+          },
+          "Banana": {
+            "n": 4585,
+            "accuracy": 0.777535441657579,
+            "macro_f1": 0.7689797715038562,
+            "per_class_recall": {
+              "Fresh": 0.7491877842755036,
+              "Semi-Fresh": 0.7404473438956197,
+              "Spoiled": 0.9144444444444444
+            },
+            "per_class_support": {
+              "Fresh": 1539,
+              "Semi-Fresh": 2146,
+              "Spoiled": 900
+            }
+          },
+          "Brinjal": {
+            "n": 720,
+            "accuracy": 0.6277777777777778,
+            "macro_f1": 0.5973386374376662,
+            "per_class_recall": {
+              "Fresh": 0.7583333333333333,
+              "Semi-Fresh": 0.25,
+              "Spoiled": 0.875
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Cabbage": {
+            "n": 720,
+            "accuracy": 0.7069444444444445,
+            "macro_f1": 0.6893240313068204,
+            "per_class_recall": {
+              "Fresh": 0.9083333333333333,
+              "Semi-Fresh": 0.38333333333333336,
+              "Spoiled": 0.8291666666666667
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Capsicum": {
+            "n": 720,
+            "accuracy": 0.675,
+            "macro_f1": 0.6698371975944397,
+            "per_class_recall": {
+              "Fresh": 0.7125,
+              "Semi-Fresh": 0.43333333333333335,
+              "Spoiled": 0.8791666666666667
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Carrot": {
+            "n": 720,
+            "accuracy": 0.5583333333333333,
+            "macro_f1": 0.5269670123158495,
+            "per_class_recall": {
+              "Fresh": 0.675,
+              "Semi-Fresh": 0.1625,
+              "Spoiled": 0.8375
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Cauliflower": {
+            "n": 720,
+            "accuracy": 0.8069444444444445,
+            "macro_f1": 0.803693404089238,
+            "per_class_recall": {
+              "Fresh": 0.8166666666666667,
+              "Semi-Fresh": 0.6583333333333333,
+              "Spoiled": 0.9458333333333333
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Cucumber": {
+            "n": 720,
+            "accuracy": 0.6388888888888888,
+            "macro_f1": 0.6043342764989333,
+            "per_class_recall": {
+              "Fresh": 0.7541666666666667,
+              "Semi-Fresh": 0.25416666666666665,
+              "Spoiled": 0.9083333333333333
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Grapes": {
+            "n": 720,
+            "accuracy": 0.6791666666666667,
+            "macro_f1": 0.6713722953878216,
+            "per_class_recall": {
+              "Fresh": 0.7666666666666667,
+              "Semi-Fresh": 0.44583333333333336,
+              "Spoiled": 0.825
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Guava": {
+            "n": 720,
+            "accuracy": 0.5694444444444444,
+            "macro_f1": 0.5603541470491971,
+            "per_class_recall": {
+              "Fresh": 0.7083333333333334,
+              "Semi-Fresh": 0.3125,
+              "Spoiled": 0.6875
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Mango": {
+            "n": 720,
+            "accuracy": 0.5875,
+            "macro_f1": 0.5665589028827837,
+            "per_class_recall": {
+              "Fresh": 0.7666666666666667,
+              "Semi-Fresh": 0.23333333333333334,
+              "Spoiled": 0.7625
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Onion": {
+            "n": 720,
+            "accuracy": 0.4625,
+            "macro_f1": 0.4304716812145683,
+            "per_class_recall": {
+              "Fresh": 0.6625,
+              "Semi-Fresh": 0.075,
+              "Spoiled": 0.65
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Orange": {
+            "n": 720,
+            "accuracy": 0.6180555555555556,
+            "macro_f1": 0.5767464705925648,
+            "per_class_recall": {
+              "Fresh": 0.8916666666666667,
+              "Semi-Fresh": 0.18333333333333332,
+              "Spoiled": 0.7791666666666667
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Papaya": {
+            "n": 720,
+            "accuracy": 0.6777777777777778,
+            "macro_f1": 0.6568379918384216,
+            "per_class_recall": {
+              "Fresh": 0.8958333333333334,
+              "Semi-Fresh": 0.3333333333333333,
+              "Spoiled": 0.8041666666666667
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Pear": {
+            "n": 720,
+            "accuracy": 0.7611111111111111,
+            "macro_f1": 0.7642030472539897,
+            "per_class_recall": {
+              "Fresh": 0.7166666666666667,
+              "Semi-Fresh": 0.6958333333333333,
+              "Spoiled": 0.8708333333333333
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Potato": {
+            "n": 720,
+            "accuracy": 0.6666666666666666,
+            "macro_f1": 0.6553863900729058,
+            "per_class_recall": {
+              "Fresh": 0.9458333333333333,
+              "Semi-Fresh": 0.39166666666666666,
+              "Spoiled": 0.6625
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Spinach": {
+            "n": 720,
+            "accuracy": 0.6652777777777777,
+            "macro_f1": 0.6603727134992304,
+            "per_class_recall": {
+              "Fresh": 0.6083333333333333,
+              "Semi-Fresh": 0.5166666666666667,
+              "Spoiled": 0.8708333333333333
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Strawberry": {
+            "n": 720,
+            "accuracy": 0.6527777777777778,
+            "macro_f1": 0.6291752907372884,
+            "per_class_recall": {
+              "Fresh": 0.8708333333333333,
+              "Semi-Fresh": 0.2708333333333333,
+              "Spoiled": 0.8166666666666667
+            },
+            "per_class_support": {
+              "Fresh": 240,
+              "Semi-Fresh": 240,
+              "Spoiled": 240
+            }
+          },
+          "Tomato": {
+            "n": 11712,
+            "accuracy": 0.7862875683060109,
+            "macro_f1": 0.7789488173109015,
+            "per_class_recall": {
+              "Fresh": 0.8467624401415782,
+              "Semi-Fresh": 0.5881226053639846,
+              "Spoiled": 0.8737092930897538
+            },
+            "per_class_support": {
+              "Fresh": 4803,
+              "Semi-Fresh": 3132,
+              "Spoiled": 3777
+            }
+          }
+        },
+        "real_rows_only": {
+          "n": 23008,
+          "accuracy": 0.8253650904033379,
+          "macro_f1": 0.829342586657864,
+          "per_class_recall": {
+            "Fresh": 0.8435110147243465,
+            "Semi-Fresh": 0.7597778029701848,
+            "Spoiled": 0.9026907482491706
+          },
+          "per_class_support": {
+            "Fresh": 8761,
+            "Semi-Fresh": 8821,
+            "Spoiled": 5426
+          }
+        },
+        "real_saturated_MQ135_rows": {
+          "n": 1557,
+          "accuracy": 0.9955041746949261,
+          "macro_f1": 0.4072998458284034,
+          "per_class_recall": {
+            "Fresh": 0.0,
+            "Semi-Fresh": 0.9993548387096775,
+            "Spoiled": 1.0
+          },
+          "per_class_support": {
+            "Fresh": 6,
+            "Semi-Fresh": 1550,
+            "Spoiled": 1
+          }
+        },
+        "real_non_saturated_rows": {
+          "n": 21451,
+          "accuracy": 0.8130157102232997,
+          "macro_f1": 0.8151188765401832,
+          "per_class_recall": {
+            "Fresh": 0.8440890919474586,
+            "Semi-Fresh": 0.7087058176316875,
+            "Spoiled": 0.9026728110599078
+          },
+          "per_class_support": {
+            "Fresh": 8755,
+            "Semi-Fresh": 7271,
+            "Spoiled": 5425
+          }
+        },
+        "real_by_quality_tier": {
+          "A": {
+            "n": 11005,
+            "accuracy": 0.8497046796910496,
+            "macro_f1": 0.8148947158221159,
+            "per_class_recall": {
+              "Fresh": 0.7475474166121648,
+              "Semi-Fresh": 0.799951679149553,
+              "Spoiled": 0.9175566797826494
+            },
+            "per_class_support": {
+              "Fresh": 1529,
+              "Semi-Fresh": 4139,
+              "Spoiled": 5337
+            }
+          },
+          "B": {
+            "n": 5333,
+            "accuracy": 0.672417026064129,
+            "macro_f1": 0.43945324732906693,
+            "per_class_recall": {
+              "Fresh": 0.6284119106699751,
+              "Semi-Fresh": 0.7081497797356828,
+              "Spoiled": 0.011235955056179775
+            },
+            "per_class_support": {
+              "Fresh": 1612,
+              "Semi-Fresh": 3632,
+              "Spoiled": 89
+            }
+          },
+          "C": {
+            "n": 6670,
+            "accuracy": 0.907496251874063,
+            "macro_f1": 0.5569083354752848,
+            "per_class_recall": {
+              "Fresh": 0.9313167259786477,
+              "Semi-Fresh": 0.78,
+              "Spoiled": 0.0
+            },
+            "per_class_support": {
+              "Fresh": 5620,
+              "Semi-Fresh": 1050,
+              "Spoiled": 0
+            }
+          }
+        },
+        "synthetic_rows_only": {
+          "n": 13320,
+          "accuracy": 0.6831081081081081,
+          "macro_f1": 0.6520425918378017,
+          "per_class_recall": {
+            "Fresh": 0.8040084388185654,
+            "Semi-Fresh": 0.35,
+            "Spoiled": 0.8320675105485232
+          },
+          "per_class_support": {
+            "Fresh": 4740,
+            "Semi-Fresh": 3840,
+            "Spoiled": 4740
+          }
+        }
+      },
+      "ablations": {
+        "gas_sensors_only+fruit_type(no temperature/humidity)": {
+          "n": 36328,
+          "accuracy": 0.6271195771856419,
+          "macro_f1": 0.6224385203823476,
+          "per_class_recall": {
+            "Fresh": 0.7575735130731057,
+            "Semi-Fresh": 0.44870073453913595,
+            "Spoiled": 0.6760771198111352
+          },
+          "per_class_support": {
+            "Fresh": 13501,
+            "Semi-Fresh": 12661,
+            "Spoiled": 10166
+          }
+        },
+        "sensors_only(no fruit_type)": {
+          "n": 36328,
+          "accuracy": 0.6660427218674301,
+          "macro_f1": 0.6591690318671891,
+          "per_class_recall": {
+            "Fresh": 0.7597215021109548,
+            "Semi-Fresh": 0.4587315377932233,
+            "Spoiled": 0.7998229392091285
+          },
+          "per_class_support": {
+            "Fresh": 13501,
+            "Semi-Fresh": 12661,
+            "Spoiled": 10166
+          }
+        }
+      }
+    }
+  },
+  "reliability": {
+    "proxy_real": {
+      "independent_groups": 9,
+      "groups_per_class": {
+        "Fresh": 9,
+        "Semi-Fresh": 9,
+        "Spoiled": 6
+      },
+      "estimates_reliable": false,
+      "reasons": [
+        "only 9 independent groups",
+        "fewer than 10 independent groups for some class: {'Fresh': 9, 'Semi-Fresh': 9, 'Spoiled': 6}",
+        "labels are storage-day proxies, so metrics measure agreement with the proxy rule",
+        "real foods lacking a class (no real Spoiled examples): ['Banana']"
+      ]
+    },
+    "synthetic_demo": {
+      "independent_groups": 414,
+      "groups_per_class": {
+        "Fresh": 143,
+        "Semi-Fresh": 128,
+        "Spoiled": 143
+      },
+      "estimates_reliable": false,
+      "reasons": [
+        "synthetic records come from a class-conditional generator; metrics measure how well the generator's classes can be separated, not real-world freshness"
+      ]
+    },
+    "combined_demo": {
+      "independent_groups": 423,
+      "groups_per_class": {
+        "Fresh": 152,
+        "Semi-Fresh": 137,
+        "Spoiled": 149
+      },
+      "estimates_reliable": false,
+      "reasons": [
+        "synthetic records come from a class-conditional generator; metrics measure how well the generator's classes can be separated, not real-world freshness",
+        "labels are storage-day proxies, so metrics measure agreement with the proxy rule",
+        "real foods lacking a class (no real Spoiled examples): ['Banana']"
+      ]
+    }
+  },
+  "transfer": {
+    "synthetic->real": {
+      "model": "logistic_regression",
+      "n": 23008,
+      "accuracy": 0.5087360917941586,
+      "balanced_accuracy": 0.5331454047952265,
+      "macro_precision": 0.49850716954093693,
+      "macro_recall": 0.5331454047952265,
+      "macro_f1": 0.47584411041215474,
+      "confusion_matrix": {
+        "labels": [
+          "Fresh",
+          "Semi-Fresh",
+          "Spoiled"
+        ],
+        "matrix": [
+          [
+            6446,
+            799,
+            1516
+          ],
+          [
+            3136,
+            1488,
+            4197
+          ],
+          [
+            837,
+            818,
+            3771
+          ]
+        ],
+        "note": "rows = true class, columns = predicted class"
+      },
+      "per_class_recall": {
+        "Fresh": 0.7357607579043488,
+        "Semi-Fresh": 0.168688357329101,
+        "Spoiled": 0.69498709915223
+      }
+    },
+    "real->synthetic": {
+      "model": "extra_trees",
+      "n": 13320,
+      "accuracy": 0.2807057057057057,
+      "balanced_accuracy": 0.27404843530239104,
+      "macro_precision": 0.29208528107156345,
+      "macro_recall": 0.27404843530239104,
+      "macro_f1": 0.2478755722097253,
+      "confusion_matrix": {
+        "labels": [
+          "Fresh",
+          "Semi-Fresh",
+          "Spoiled"
+        ],
+        "matrix": [
+          [
+            541,
+            382,
+            3817
+          ],
+          [
+            446,
+            674,
+            2720
+          ],
+          [
+            564,
+            1652,
+            2524
+          ]
+        ],
+        "note": "rows = true class, columns = predicted class"
+      },
+      "per_class_recall": {
+        "Fresh": 0.11413502109704642,
+        "Semi-Fresh": 0.17552083333333332,
+        "Spoiled": 0.5324894514767933
+      }
+    },
+    "note": "Sensor-only diagnostic (fruit_type removed because the two sources share only Banana/Tomato and each is single-class in the synthetic set). Low transfer means synthetic data does not reproduce the real proxy-label structure and vice versa."
+  }
+}

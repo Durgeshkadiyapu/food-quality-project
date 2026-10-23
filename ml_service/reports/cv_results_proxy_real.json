@@ -1,0 +1,567 @@
+{
+  "mode": "proxy_real",
+  "selected": "extra_trees",
+  "candidates": {
+    "logistic_regression": {
+      "n": 23008,
+      "accuracy": 0.7188369262865091,
+      "balanced_accuracy": 0.7389834669015488,
+      "macro_precision": 0.7182707752515478,
+      "macro_recall": 0.7389834669015488,
+      "macro_f1": 0.7213073232164158,
+      "per_class": {
+        "Fresh": {
+          "precision": 0.7254836557705137,
+          "recall": 0.7447779933797511,
+          "f1": 0.7350042241622078,
+          "support": 8761
+        },
+        "Semi-Fresh": {
+          "precision": 0.7530758226037196,
+          "recall": 0.5967577372180025,
+          "f1": 0.6658655366516982,
+          "support": 8821
+        },
+        "Spoiled": {
+          "precision": 0.67625284738041,
+          "recall": 0.8754146701068928,
+          "f1": 0.7630522088353414,
+          "support": 5426
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Fresh",
+          "Semi-Fresh",
+          "Spoiled"
+        ],
+        "matrix": [
+          [
+            6525,
+            1050,
+            1186
+          ],
+          [
+            2469,
+            5264,
+            1088
+          ],
+          [
+            0,
+            676,
+            4750
+          ]
+        ],
+        "note": "rows = true class, columns = predicted class"
+      },
+      "per_fold": [
+        {
+          "fold": 0,
+          "held_out_groups": [
+            "Apple_1"
+          ],
+          "n": 2710,
+          "accuracy": 0.8675276752767528
+        },
+        {
+          "fold": 1,
+          "held_out_groups": [
+            "Apple_2"
+          ],
+          "n": 2605,
+          "accuracy": 0.7523992322456814
+        },
+        {
+          "fold": 2,
+          "held_out_groups": [
+            "Apple_3"
+          ],
+          "n": 3196,
+          "accuracy": 0.6689612015018773
+        },
+        {
+          "fold": 3,
+          "held_out_groups": [
+            "Banana_1"
+          ],
+          "n": 1089,
+          "accuracy": 0.9935720844811754
+        },
+        {
+          "fold": 4,
+          "held_out_groups": [
+            "Banana_2"
+          ],
+          "n": 1561,
+          "accuracy": 0.9980781550288277
+        },
+        {
+          "fold": 5,
+          "held_out_groups": [
+            "Banana_3"
+          ],
+          "n": 1035,
+          "accuracy": 0.370048309178744
+        },
+        {
+          "fold": 6,
+          "held_out_groups": [
+            "Tomato_1"
+          ],
+          "n": 3974,
+          "accuracy": 0.5541016607951686
+        },
+        {
+          "fold": 7,
+          "held_out_groups": [
+            "Tomato_2"
+          ],
+          "n": 3255,
+          "accuracy": 0.7987711213517665
+        },
+        {
+          "fold": 8,
+          "held_out_groups": [
+            "Tomato_3"
+          ],
+          "n": 3583,
+          "accuracy": 0.6321518280770304
+        }
+      ]
+    },
+    "random_forest": {
+      "n": 23008,
+      "accuracy": 0.8378390125173852,
+      "balanced_accuracy": 0.8450610745900625,
+      "macro_precision": 0.8656232464902462,
+      "macro_recall": 0.8450610745900625,
+      "macro_f1": 0.8517529050242741,
+      "per_class": {
+        "Fresh": {
+          "precision": 0.865514553014553,
+          "recall": 0.7603013354639881,
+          "f1": 0.8095035547183569,
+          "support": 8761
+        },
+        "Semi-Fresh": {
+          "precision": 0.7479510172596664,
+          "recall": 0.8793787552431697,
+          "f1": 0.8083576490204252,
+          "support": 8821
+        },
+        "Spoiled": {
+          "precision": 0.983404169196519,
+          "recall": 0.8955031330630299,
+          "f1": 0.9373975113340407,
+          "support": 5426
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Fresh",
+          "Semi-Fresh",
+          "Spoiled"
+        ],
+        "matrix": [
+          [
+            6661,
+            2085,
+            15
+          ],
+          [
+            997,
+            7757,
+            67
+          ],
+          [
+            38,
+            529,
+            4859
+          ]
+        ],
+        "note": "rows = true class, columns = predicted class"
+      },
+      "per_fold": [
+        {
+          "fold": 0,
+          "held_out_groups": [
+            "Apple_1"
+          ],
+          "n": 2710,
+          "accuracy": 0.9915129151291513
+        },
+        {
+          "fold": 1,
+          "held_out_groups": [
+            "Apple_2"
+          ],
+          "n": 2605,
+          "accuracy": 0.9040307101727447
+        },
+        {
+          "fold": 2,
+          "held_out_groups": [
+            "Apple_3"
+          ],
+          "n": 3196,
+          "accuracy": 0.8742177722152691
+        },
+        {
+          "fold": 3,
+          "held_out_groups": [
+            "Banana_1"
+          ],
+          "n": 1089,
+          "accuracy": 0.9972451790633609
+        },
+        {
+          "fold": 4,
+          "held_out_groups": [
+            "Banana_2"
+          ],
+          "n": 1561,
+          "accuracy": 1.0
+        },
+        {
+          "fold": 5,
+          "held_out_groups": [
+            "Banana_3"
+          ],
+          "n": 1035,
+          "accuracy": 0.6193236714975845
+        },
+        {
+          "fold": 6,
+          "held_out_groups": [
+            "Tomato_1"
+          ],
+          "n": 3974,
+          "accuracy": 0.7357825868142929
+        },
+        {
+          "fold": 7,
+          "held_out_groups": [
+            "Tomato_2"
+          ],
+          "n": 3255,
+          "accuracy": 0.7188940092165899
+        },
+        {
+          "fold": 8,
+          "held_out_groups": [
+            "Tomato_3"
+          ],
+          "n": 3583,
+          "accuracy": 0.8063075634942786
+        }
+      ]
+    },
+    "extra_trees": {
+      "n": 23008,
+      "accuracy": 0.8918202364394993,
+      "balanced_accuracy": 0.9055063364341976,
+      "macro_precision": 0.9044876588007881,
+      "macro_recall": 0.9055063364341976,
+      "macro_f1": 0.904438782411241,
+      "per_class": {
+        "Fresh": {
+          "precision": 0.8855782146782268,
+          "recall": 0.8277593881976943,
+          "f1": 0.855693215339233,
+          "support": 8761
+        },
+        "Semi-Fresh": {
+          "precision": 0.8415236051502146,
+          "recall": 0.8891282167554699,
+          "f1": 0.8646711868143984,
+          "support": 8821
+        },
+        "Spoiled": {
+          "precision": 0.9863611565739225,
+          "recall": 0.9996314043494287,
+          "f1": 0.9929519450800915,
+          "support": 5426
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Fresh",
+          "Semi-Fresh",
+          "Spoiled"
+        ],
+        "matrix": [
+          [
+            7252,
+            1476,
+            33
+          ],
+          [
+            936,
+            7843,
+            42
+          ],
+          [
+            1,
+            1,
+            5424
+          ]
+        ],
+        "note": "rows = true class, columns = predicted class"
+      },
+      "per_fold": [
+        {
+          "fold": 0,
+          "held_out_groups": [
+            "Apple_1"
+          ],
+          "n": 2710,
+          "accuracy": 0.9911439114391144
+        },
+        {
+          "fold": 1,
+          "held_out_groups": [
+            "Apple_2"
+          ],
+          "n": 2605,
+          "accuracy": 0.9685220729366603
+        },
+        {
+          "fold": 2,
+          "held_out_groups": [
+            "Apple_3"
+          ],
+          "n": 3196,
+          "accuracy": 0.9464956195244055
+        },
+        {
+          "fold": 3,
+          "held_out_groups": [
+            "Banana_1"
+          ],
+          "n": 1089,
+          "accuracy": 0.9972451790633609
+        },
+        {
+          "fold": 4,
+          "held_out_groups": [
+            "Banana_2"
+          ],
+          "n": 1561,
+          "accuracy": 1.0
+        },
+        {
+          "fold": 5,
+          "held_out_groups": [
+            "Banana_3"
+          ],
+          "n": 1035,
+          "accuracy": 0.8280193236714976
+        },
+        {
+          "fold": 6,
+          "held_out_groups": [
+            "Tomato_1"
+          ],
+          "n": 3974,
+          "accuracy": 0.7735279315551082
+        },
+        {
+          "fold": 7,
+          "held_out_groups": [
+            "Tomato_2"
+          ],
+          "n": 3255,
+          "accuracy": 0.8141321044546851
+        },
+        {
+          "fold": 8,
+          "held_out_groups": [
+            "Tomato_3"
+          ],
+          "n": 3583,
+          "accuracy": 0.8531956461066146
+        }
+      ]
+    },
+    "hist_gradient_boosting": {
+      "n": 23008,
+      "accuracy": 0.8269732267037552,
+      "balanced_accuracy": 0.84549419455454,
+      "macro_precision": 0.8369613136771493,
+      "macro_recall": 0.84549419455454,
+      "macro_f1": 0.8386645207786904,
+      "per_class": {
+        "Fresh": {
+          "precision": 0.8589454110771683,
+          "recall": 0.738157744549709,
+          "f1": 0.7939840392879067,
+          "support": 8761
+        },
+        "Semi-Fresh": {
+          "precision": 0.7633675823023695,
+          "recall": 0.8254166194309035,
+          "f1": 0.7931804564518765,
+          "support": 8821
+        },
+        "Spoiled": {
+          "precision": 0.8885709476519105,
+          "recall": 0.9729082196830078,
+          "f1": 0.9288290665962875,
+          "support": 5426
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Fresh",
+          "Semi-Fresh",
+          "Spoiled"
+        ],
+        "matrix": [
+          [
+            6467,
+            2146,
+            148
+          ],
+          [
+            1026,
+            7281,
+            514
+          ],
+          [
+            36,
+            111,
+            5279
+          ]
+        ],
+        "note": "rows = true class, columns = predicted class"
+      },
+      "per_fold": [
+        {
+          "fold": 0,
+          "held_out_groups": [
+            "Apple_1"
+          ],
+          "n": 2710,
+          "accuracy": 0.9881918819188192
+        },
+        {
+          "fold": 1,
+          "held_out_groups": [
+            "Apple_2"
+          ],
+          "n": 2605,
+          "accuracy": 0.928214971209213
+        },
+        {
+          "fold": 2,
+          "held_out_groups": [
+            "Apple_3"
+          ],
+          "n": 3196,
+          "accuracy": 0.675531914893617
+        },
+        {
+          "fold": 3,
+          "held_out_groups": [
+            "Banana_1"
+          ],
+          "n": 1089,
+          "accuracy": 0.9761248852157943
+        },
+        {
+          "fold": 4,
+          "held_out_groups": [
+            "Banana_2"
+          ],
+          "n": 1561,
+          "accuracy": 0.9987187700192185
+        },
+        {
+          "fold": 5,
+          "held_out_groups": [
+            "Banana_3"
+          ],
+          "n": 1035,
+          "accuracy": 0.6057971014492753
+        },
+        {
+          "fold": 6,
+          "held_out_groups": [
+            "Tomato_1"
+          ],
+          "n": 3974,
+          "accuracy": 0.79768495218923
+        },
+        {
+          "fold": 7,
+          "held_out_groups": [
+            "Tomato_2"
+          ],
+          "n": 3255,
+          "accuracy": 0.709062980030722
+        },
+        {
+          "fold": 8,
+          "held_out_groups": [
+            "Tomato_3"
+          ],
+          "n": 3583,
+          "accuracy": 0.8498464973485905
+        }
+      ]
+    }
+  },
+  "majority_baseline": {
+    "n": 23008,
+    "accuracy": 0.33718706536856746,
+    "balanced_accuracy": 0.29372071175108855,
+    "macro_precision": 0.23155135563326165,
+    "macro_recall": 0.29372071175108855,
+    "macro_f1": 0.2420354044941798,
+    "per_class": {
+      "Fresh": {
+        "precision": 0.36794389326034893,
+        "recall": 0.24551991781760074,
+        "f1": 0.2945163277880468,
+        "support": 8761
+      },
+      "Semi-Fresh": {
+        "precision": 0.32671017363943594,
+        "recall": 0.6356422174356648,
+        "f1": 0.4315898856944925,
+        "support": 8821
+      },
+      "Spoiled": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5426
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "Fresh",
+        "Semi-Fresh",
+        "Spoiled"
+      ],
+      "matrix": [
+        [
+          2151,
+          6610,
+          0
+        ],
+        [
+          3214,
+          5607,
+          0
+        ],
+        [
+          481,
+          4945,
+          0
+        ]
+      ],
+      "note": "rows = true class, columns = predicted class"
+    }
+  }
+}
