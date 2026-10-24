@@ -13,36 +13,72 @@ export class MLService {
    */
   async _fetchWithTimeout(endpoint, options = {}) {
     const url = `${this.baseUrl}${endpoint.startsWith('/') ? endpoint : `/${endpoint}`}`;
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), this.timeoutMs);
+    const maxAttempts = 3;
+    const retryableStatuses = [502, 503, 504];
+    let lastError;
 
-    try {
-      const response = await fetch(url, {
-        ...options,
-        signal: controller.signal,
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          ...(options.headers || {})
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), this.timeoutMs);
+
+      try {
+        const response = await fetch(url, {
+          ...options,
+          signal: controller.signal,
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            ...(options.headers || {})
+          }
+        });
+
+        // Retry only transient upstream gateway/service errors.
+        if (retryableStatuses.includes(response.status) && attempt < maxAttempts) {
+          console.warn(
+            `[ML Retry] ${endpoint} returned HTTP ${response.status}; ` +
+            `retrying attempt ${attempt + 1}/${maxAttempts}.`
+          );
+
+          if (response.body) {
+            await response.body.cancel().catch(() => {});
+          }
+
+          await new Promise(resolve => setTimeout(resolve, 500 * attempt));
+          continue;
         }
-      });
-      return response;
-    } catch (err) {
-      if (err.name === 'AbortError' || err.name === 'TimeoutError') {
-        throw AppError.mlGatewayTimeout(`ML service request timed out after ${this.timeoutMs}ms.`);
+
+        return response;
+      } catch (err) {
+        lastError = err;
+
+        if (attempt < maxAttempts) {
+          console.warn(
+            `[ML Retry] ${endpoint} request failed: ${err.message}; ` +
+            `retrying attempt ${attempt + 1}/${maxAttempts}.`
+          );
+
+          await new Promise(resolve => setTimeout(resolve, 500 * attempt));
+          continue;
+        }
+      } finally {
+        clearTimeout(timeoutId);
       }
-      if (
-        err.code === 'ECONNREFUSED' ||
-        err.code === 'ENOTFOUND' ||
-        err.code === 'ECONNRESET' ||
-        err.message?.includes('fetch failed')
-      ) {
-        throw AppError.mlServiceUnavailable('Prediction service is temporarily unavailable.');
-      }
-      throw AppError.mlServiceUnavailable(`Unable to communicate with ML service: ${err.message}`);
-    } finally {
-      clearTimeout(timeoutId);
     }
+
+    if (
+      lastError?.name === 'AbortError' ||
+      lastError?.name === 'TimeoutError'
+    ) {
+      throw AppError.mlGatewayTimeout(
+        `ML service request timed out after ${maxAttempts} attempts ` +
+        `(${this.timeoutMs}ms per attempt).`
+      );
+    }
+
+    throw AppError.mlServiceUnavailable(
+      `Unable to communicate with ML service after ${maxAttempts} attempts: ` +
+      `${lastError?.message || 'Unknown network error'}`
+    );
   }
 
   /**
