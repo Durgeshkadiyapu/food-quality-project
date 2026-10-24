@@ -127,6 +127,11 @@ export async function getPredictions(params = {}) {
   return request(`/predictions${queryString ? `?${queryString}` : ''}`);
 }
 
+/** Request class-specific SHAP explanations through the Node API. */
+export async function getPredictionExplanation(payload) {
+  return request('/ml/explain', { method: 'POST', body: JSON.stringify(payload) });
+}
+
 /**
  * Retrieve a single saved prediction by MongoDB ID
  * GET /api/v1/predictions/:id
