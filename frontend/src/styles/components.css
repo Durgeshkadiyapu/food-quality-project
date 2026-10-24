@@ -440,3 +440,82 @@
   box-shadow: var(--shadow-sm);
 }
 
+
+
+/* AI Food Advisor */
+.food-advisor {
+  margin: 1.5rem 0;
+  overflow: hidden;
+  border-color: #cfe5d4;
+  box-shadow: 0 12px 34px rgba(22, 101, 52, 0.07);
+}
+.food-advisor .card-header {
+  background: linear-gradient(115deg, #f0fdf4 0%, #ffffff 72%);
+  align-items: center;
+  gap: 1rem;
+}
+.food-advisor .card-title {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+}
+.food-advisor .card-title svg { color: var(--color-primary); }
+.advisor-empty {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  padding: 1.2rem;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-background-subtle);
+}
+.advisor-empty svg { color: var(--color-primary); flex-shrink: 0; }
+.advisor-empty p { margin: 0; font-size: .9rem; }
+.advisor-content { display: grid; gap: 1rem; }
+.advisor-summary {
+  display: flex;
+  align-items: flex-start;
+  gap: .7rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-lg);
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+.advisor-summary svg { color: #166534; flex-shrink: 0; margin-top: .2rem; }
+.advisor-summary p { color: #14532d; margin: 0; font-weight: 550; }
+.advisor-section {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+.advisor-section h4 {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 0 0 .65rem;
+}
+.advisor-section h4 svg { color: var(--color-primary); }
+.advisor-section ul { margin: 0; padding-left: 1.2rem; display: grid; gap: .45rem; }
+.advisor-section li { color: var(--color-text-secondary); line-height: 1.55; }
+.advisor-evidence {
+  font-size: .8rem;
+  padding: .75rem .9rem;
+  border-left: 3px solid #86efac;
+  background: var(--color-background-subtle);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.advisor-disclaimer {
+  font-size: .78rem;
+  padding: .75rem .9rem;
+  color: #854d0e;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: var(--radius-md);
+}
+.advisor-spin { animation: advisor-rotate 1s linear infinite; }
+@keyframes advisor-rotate { to { transform: rotate(360deg); } }
+@media (max-width: 600px) {
+  .food-advisor .card-header { align-items: flex-start; flex-direction: column; }
+  .food-advisor .card-header .btn { width: 100%; justify-content: center; }
+}
