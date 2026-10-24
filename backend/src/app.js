@@ -9,6 +9,10 @@ import apiV1Routes from './routes/index.js';
 
 const app = express();
 
+// Render terminates TLS and forwards requests through one trusted proxy hop.
+// This lets express-rate-limit safely identify the originating client IP.
+app.set('trust proxy', 1);
+
 // Security HTTP headers
 app.use(helmet());
 
