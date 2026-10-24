@@ -201,6 +201,19 @@ export class MLService {
     });
 
     let data;
+    if (!response.ok) {
+      let upstreamPreview = '';
+      try {
+        upstreamPreview = (await response.clone().text()).replace(/<[^>]*>/g, ' ').replace(/\\s+/g, ' ').trim().slice(0, 240);
+      } catch {}
+      console.error('[ML Upstream Response]', JSON.stringify({
+        endpoint: '/predict',
+        status: response.status,
+        content_type: response.headers.get('content-type') || 'unknown',
+        server: response.headers.get('server') || 'unknown',
+        preview: upstreamPreview
+      }));
+    }
     try {
       data = await response.json();
     } catch (err) {
