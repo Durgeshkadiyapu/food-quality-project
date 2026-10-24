@@ -155,3 +155,13 @@ export async function uploadSpreadsheet(formData) {
 }
 
 export { ApiError, BASE_URL };
+
+
+/** Generate grounded storage advice using the backend-only Groq integration. */
+export async function getFoodAdvice(payload) {
+  return request('/advisor/recommendations', {
+    method: 'POST',
+    timeoutMs: 25000,
+    body: JSON.stringify(payload)
+  });
+}
