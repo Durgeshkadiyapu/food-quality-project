@@ -33,6 +33,7 @@ import {
   Legend
 } from 'recharts';
 import StatusBadge from '../common/StatusBadge';
+import ShapExplanation from './ShapExplanation';
 import { formatDate, formatPercent, getModeBadgeLabel, computeShelfLifeEstimate } from '../../utils/formatters';
 
 export default function PredictionResult({ result, onReset }) {
@@ -215,6 +216,9 @@ export default function PredictionResult({ result, onReset }) {
             </div>
           </div>
         )}
+
+        {/* Per-reading class-specific explanation from the ML service. */}
+        {!isBatch && <ShapExplanation result={result} />}
 
         {/* If Batch Readings: All Readings Summary Statistics */}
         {isBatch && (
