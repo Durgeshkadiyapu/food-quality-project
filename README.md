@@ -92,3 +92,40 @@ npm run dev
 ## Notes & Limitations
 - All models operate on **storage-day proxy labels** or synthetic demonstration sets, not laboratory-certified chemical ground truth.
 - Outputs represent experimental demonstration scores, not regulatory food safety advice.
+
+
+## AI Food Storage Advisor (Groq)
+
+The optional advisor turns a saved prediction and sensor context into a structured explanation and practical storage suggestions.
+
+### Backend environment
+Set these in the **Node.js backend** environment (for example, Render). Never add the Groq key to frontend/Vercel variables or commit a real key.
+
+```env
+GROQ_API_KEY=your_groq_api_key
+GROQ_MODEL=llama-3.3-70b-versatile
+```
+
+The endpoint is `POST /api/v1/advisor/recommendations`. Example request:
+
+```json
+{
+  "fruit_type": "Apple",
+  "predicted_class": "Semi-Fresh",
+  "model_mode": "proxy_real",
+  "model_version": "1.0.0-proxy_real",
+  "label_method": "storage_day_proxy",
+  "sensor_readings": {
+    "MQ3_raw": 2124,
+    "MQ135_raw": 2303,
+    "temperature_C": 30.8,
+    "humidity_pct": 88.85
+  },
+  "warnings": [],
+  "shap_contributions": []
+}
+```
+
+The response includes a summary, model-context observations, recommended actions, storage guidance, monitoring suggestions, limitations, and a disclaimer. The backend makes the Groq request; the browser never receives the secret.
+
+**Important limitation:** model labels are based on experimental storage-day proxy or synthetic data, not laboratory-certified food-safety ground truth. SHAP values explain model output and do not prove causation. Neither the prediction nor generated advice guarantees that food is safe to eat. Storage notes are general educational guidance; verify them against trusted local food-safety guidance.
