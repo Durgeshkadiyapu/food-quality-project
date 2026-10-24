@@ -23,7 +23,7 @@ services:
       - PORT=5000
       - NODE_ENV=production
       - ML_BASE_URL=http://ml-service:8000
-      - MONGODB_URI=mongodb://madinarohitkumar173_db_user:xHndJi5BOyl7MzHr@ac-wdr1rho-shard-00-00.koq2e1t.mongodb.net:27017,ac-wdr1rho-shard-00-01.koq2e1t.mongodb.net:27017,ac-wdr1rho-shard-00-02.koq2e1t.mongodb.net:27017/?ssl=true&replicaSet=atlas-107aj5-shard-0&authSource=admin
+      - MONGODB_URI=${MONGODB_URI:?Set MONGODB_URI in your untracked .env file}
       - CORS_ORIGINS=http://localhost,http://localhost:5173,http://localhost:80
 
   frontend:
