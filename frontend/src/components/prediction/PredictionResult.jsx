@@ -6,6 +6,7 @@ import {
   XCircle,
   Info,
   Calendar,
+  Clock,
   Layers,
   Thermometer,
   Droplets,
@@ -32,7 +33,7 @@ import {
   Legend
 } from 'recharts';
 import StatusBadge from '../common/StatusBadge';
-import { formatDate, formatPercent, getModeBadgeLabel } from '../../utils/formatters';
+import { formatDate, formatPercent, getModeBadgeLabel, computeShelfLifeEstimate } from '../../utils/formatters';
 
 export default function PredictionResult({ result, onReset }) {
   const [showTable, setShowTable] = useState(false);
@@ -459,6 +460,61 @@ export default function PredictionResult({ result, onReset }) {
             )}
           </div>
         )}
+
+        {/* Shelf-Life Heuristic Estimate */}
+        {(() => {
+          const shelf = computeShelfLifeEstimate(predicted_class, spoilage_tendency_score);
+          const urgencyColors = {
+            safe:    { bg: '#f0fdf4', border: '#166534', text: '#166534', badge: '#dcfce7', badgeText: '#15803d' },
+            caution: { bg: '#fffbeb', border: '#d97706', text: '#92400e', badge: '#fef3c7', badgeText: '#b45309' },
+            urgent:  { bg: '#fef2f2', border: '#dc2626', text: '#7f1d1d', badge: '#fee2e2', badgeText: '#b91c1c' },
+          };
+          const c = urgencyColors[shelf.urgency];
+          return (
+            <div style={{
+              backgroundColor: c.bg,
+              border: `1px solid ${c.border}`,
+              borderRadius: 'var(--radius-lg)',
+              padding: '1.1rem 1.25rem',
+              display: 'flex',
+              flexWrap: 'wrap',
+              alignItems: 'flex-start',
+              gap: '1rem',
+              justifyContent: 'space-between'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                <Clock size={22} style={{ color: c.border, flexShrink: 0, marginTop: '2px' }} />
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: '0.95rem', color: c.text, marginBottom: '0.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    Estimated Shelf Life
+                    <span style={{
+                      fontSize: '0.7rem',
+                      fontWeight: 600,
+                      padding: '0.15rem 0.55rem',
+                      borderRadius: '9999px',
+                      backgroundColor: c.badge,
+                      color: c.badgeText,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.04em'
+                    }}>Heuristic</span>
+                  </div>
+                  <div style={{ fontSize: '1.4rem', fontWeight: 800, color: c.text }}>
+                    {shelf.estimate}
+                  </div>
+                  <p style={{ margin: '0.35rem 0 0', fontSize: '0.78rem', color: 'var(--color-muted)', maxWidth: '480px' }}>
+                    ⚠️ <em>This is a rule-based estimate derived from freshness classification and spoilage tendency index — not a validated food-safety prediction. Do not rely on this for health decisions.</em>
+                  </p>
+                </div>
+              </div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--color-muted)', textAlign: 'right', alignSelf: 'center' }}>
+                <div>Based on: <strong>{predicted_class}</strong></div>
+                {spoilage_tendency_score != null && (
+                  <div>Tendency score: <strong>{spoilage_tendency_score}/100</strong></div>
+                )}
+              </div>
+            </div>
+          );
+        })()}
 
         {/* Metadata Details */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', fontSize: '0.82rem', color: 'var(--color-muted)' }}>
