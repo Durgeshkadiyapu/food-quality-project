@@ -168,7 +168,12 @@ export class MLService {
     try {
       data = await response.json();
     } catch (err) {
-      throw AppError.mlUpstreamError('ML service returned invalid or non-JSON response.');
+      const contentType = response.headers.get('content-type') || 'unknown content-type';
+      // Keep diagnostics actionable without returning the upstream HTML/body to the browser.
+      throw AppError.mlUpstreamError(
+        `ML upstream returned non-JSON (HTTP ${response.status}, ${contentType}). Check the deployed backend's ML_BASE_URL: it must point to the running FastAPI service, not the Vercel frontend or Node API.`,
+        [{ upstream_status: response.status, content_type: contentType, expected_endpoint: '/predict' }]
+      );
     }
 
     // Handle non-2xx HTTP responses
