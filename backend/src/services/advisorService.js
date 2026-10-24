@@ -12,9 +12,14 @@ const STORAGE = {
   Onion: 'Store dry onions in a cool, dry, ventilated place.'
 };
 
+// Groq deprecated llama-3.3-70b-versatile for free/developer tiers on 2026-08-16.
+// Keep compatibility with Render environments that still have the old value configured.
+const DEPRECATED_MODEL_REPLACEMENTS = {
+  'llama-3.3-70b-versatile': 'openai/gpt-oss-120b'
+};
+
 function safeProviderMessage(value) {
   if (typeof value !== 'string') return '';
-  // Avoid logging arbitrary provider payloads or secrets; retain only a short message.
   return value.replace(/[\\r\\n\\t]+/g, ' ').slice(0, 240);
 }
 
@@ -25,7 +30,15 @@ export async function generateFoodAdvice(input = {}) {
   }
 
   const fruit = Object.hasOwn(STORAGE, input.fruit_type) ? input.fruit_type : 'Apple';
-  const model = (process.env.GROQ_MODEL || 'llama-3.3-70b-versatile').trim();
+  const configuredModel = (process.env.GROQ_MODEL || 'openai/gpt-oss-120b').trim();
+  const model = DEPRECATED_MODEL_REPLACEMENTS[configuredModel] || configuredModel;
+  if (model !== configuredModel) {
+    console.warn('[Groq Advisor] Configured model is deprecated; using supported replacement.', {
+      configuredModel,
+      selectedModel: model
+    });
+  }
+
   const context = {
     fruit_type: fruit,
     predicted_class: ['Fresh', 'Semi-Fresh', 'Spoiled'].includes(input.predicted_class) ? input.predicted_class : 'Unknown',
@@ -79,7 +92,6 @@ export async function generateFoodAdvice(input = {}) {
       // The provider may return a non-JSON error page.
     }
 
-    // Log diagnostic details without logging the API key or request headers.
     console.error('[Groq Advisor] Provider rejected request:', {
       status: response.status,
       model,
