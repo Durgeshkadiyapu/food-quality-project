@@ -118,6 +118,71 @@ class ModelBundle:
             w += " MQ135_raw is at the ADC maximum (4095): sensor saturated."
         return w
 
+    def explain(self, reading: dict) -> dict:
+        """Return genuine class-specific SHAP contributions for one validated reading."""
+        try:
+            import shap
+        except ImportError as exc:
+            raise ModelUnavailableError(
+                "SHAP is not installed in this ML environment",
+                {"dependency": "shap", "hint": "Install dependencies from requirements.txt"}
+            ) from exc
+
+        clean = validate_reading(reading)
+        clean["fruit_type"] = self.canonical_fruit(clean["fruit_type"])
+        X = pd.DataFrame([clean])[self.features]
+        preprocessor = self.pipeline.named_steps.get("pre")
+        estimator = self.pipeline.named_steps.get("clf")
+        if preprocessor is None or estimator is None or not hasattr(estimator, "estimators_"):
+            raise ModelUnavailableError("This model pipeline is not supported by the SHAP explainer")
+
+        transformed = preprocessor.transform(X)
+        if hasattr(transformed, "toarray"):
+            transformed = transformed.toarray()
+        feature_names = list(preprocessor.get_feature_names_out())
+        explainer = shap.TreeExplainer(estimator, feature_perturbation="tree_path_dependent")
+        values = explainer.shap_values(transformed)
+
+        if isinstance(values, list):
+            class_values = [v[0] for v in values]
+        else:
+            arr = values.values if hasattr(values, "values") else values
+            if getattr(arr, "ndim", 0) == 3:
+                class_values = [arr[0, :, i] for i in range(arr.shape[2])]
+            elif getattr(arr, "ndim", 0) == 2 and len(self.classes) == 1:
+                class_values = [arr[0]]
+            else:
+                raise ModelUnavailableError("Unexpected SHAP output shape",
+                                            {"shape": list(getattr(arr, "shape", ()))})
+
+        def original_feature(encoded_name: str) -> str:
+            name = encoded_name.split("__", 1)[-1]
+            if name.startswith("fruit_type_"):
+                return "fruit_type"
+            return name
+
+        per_class = {}
+        for class_name, vals in zip(self.classes, class_values):
+            totals: dict[str, float] = {}
+            for fname, value in zip(feature_names, vals):
+                original = original_feature(fname)
+                totals[original] = totals.get(original, 0.0) + float(value)
+            per_class[class_name] = [
+                {"feature": name, "shap_value": round(value, 6)}
+                for name, value in sorted(totals.items(), key=lambda item: abs(item[1]), reverse=True)
+            ]
+
+        probabilities = self.pipeline.predict_proba(X)[0]
+        predicted_class = self.classes[int(probabilities.argmax())]
+        return {
+            "available": True,
+            "method": "SHAP TreeExplainer",
+            "predicted_class": predicted_class,
+            "training_mode": self.mode,
+            "class_contributions": per_class,
+            "note": "SHAP values explain model output, not causation or food-safety certainty. Labels are storage-day proxies or synthetic labels."
+        }
+
     def predict_records(self, readings: list[dict]) -> list[dict]:
         cleans = []
         for r in readings:
