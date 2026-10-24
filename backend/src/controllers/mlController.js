@@ -26,3 +26,8 @@ export async function getMLCapabilities(req, res) {
     data: capabilities
   });
 }
+
+export async function explainPrediction(req, res) {
+  const explanation = await mlService.explain(req.body || {});
+  return res.status(HTTP_STATUS.OK).json({ success: true, data: explanation });
+}
