@@ -189,6 +189,31 @@ export class MLService {
     return this.validateMLResponse(data, fruit_type, model_mode);
   }
 
+  /** Request genuine, class-specific SHAP values from the Python ML service. */
+  async explain({ fruit_type, model_mode, sensor_readings }) {
+    const payload = {
+      fruit_type,
+      MQ3_raw: sensor_readings.MQ3_raw,
+      MQ135_raw: sensor_readings.MQ135_raw,
+      temperature_C: sensor_readings.temperature_C,
+      humidity_pct: sensor_readings.humidity_pct,
+      training_mode: model_mode
+    };
+    const response = await this._fetchWithTimeout('/explain', { method: 'POST', body: JSON.stringify(payload) });
+    let data;
+    try { data = await response.json(); }
+    catch { throw AppError.mlUpstreamError('ML service returned invalid SHAP response.'); }
+    if (!response.ok) {
+      const message = data?.error?.message || data?.detail || `SHAP explanation failed with HTTP ${response.status}`;
+      if (response.status === 503) throw AppError.mlServiceUnavailable(message);
+      throw AppError.mlUpstreamError(message);
+    }
+    if (data?.available !== true || !data?.class_contributions || typeof data.class_contributions !== 'object') {
+      throw AppError.mlUpstreamError('ML service returned an invalid SHAP explanation contract.');
+    }
+    return data;
+  }
+
   /**
    * Rigorously validate the ML inference output
    */
