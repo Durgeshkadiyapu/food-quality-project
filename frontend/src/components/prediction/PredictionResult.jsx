@@ -34,6 +34,7 @@ import {
 } from 'recharts';
 import StatusBadge from '../common/StatusBadge';
 import ShapExplanation from './ShapExplanation';
+import FoodAdvisor from './FoodAdvisor';
 import { formatDate, formatPercent, getModeBadgeLabel, computeShelfLifeEstimate } from '../../utils/formatters';
 
 export default function PredictionResult({ result, onReset }) {
@@ -464,6 +465,9 @@ export default function PredictionResult({ result, onReset }) {
             )}
           </div>
         )}
+
+        {/* Groq-powered, evidence-grounded storage guidance */}
+        {!isBatch && <FoodAdvisor result={result} />}
 
         {/* Shelf-Life Heuristic Estimate */}
         {(() => {
