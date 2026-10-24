@@ -70,6 +70,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         reading = body.model_dump(exclude={"training_mode"})
         return request.app.state.service.predict(reading, body.training_mode)
 
+    @app.post("/explain", responses=ERR)
+    def explain(body: PredictRequest, request: Request):
+        reading = body.model_dump(exclude={"training_mode"})
+        return request.app.state.service.get(body.training_mode).explain(reading)
+
     @app.post("/predict/batch", response_model=BatchPredictResponse, responses=ERR)
     def predict_batch(body: BatchPredictRequest, request: Request):
         if len(body.records) > settings.max_batch_size:
